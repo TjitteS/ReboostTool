@@ -92,7 +92,7 @@
      <x>0</x>
      <y>0</y>
      <width>1054</width>
-     <height>21</height>
+     <height>26</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -336,7 +336,7 @@
      <normaloff>:/res/icons/Horizontal Settings Mixer-96.png</normaloff>:/res/icons/Horizontal Settings Mixer-96.png</iconset>
    </property>
    <property name="text">
-    <string>Parameter Editor BMScconf</string>
+    <string>Parameter Editor</string>
    </property>
   </action>
   <action name="actionSavempptConfigurationHeader">

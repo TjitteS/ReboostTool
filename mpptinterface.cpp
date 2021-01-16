@@ -731,7 +731,7 @@ void MPPTInterface::fwVersionReceived(int major, int minor, QString hw, QByteArr
         }
 
         QString fwStr;
-        fwStr.sprintf("DieBieMS Firmware Version %d.%d", major, minor);
+        fwStr.sprintf("Reboost Firmware Version %d.%d", major, minor);
         if (!hw.isEmpty()) {
             fwStr += ", Hardware: " + hw;
         }

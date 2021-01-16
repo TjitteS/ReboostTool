@@ -13,6 +13,7 @@ PageCalibration::PageCalibration(QWidget *parent) :
     connect(ui->voltageAddData,SIGNAL(clicked()),this,SLOT(voltageAddDatapoint()));
     connect(ui->voltageCalc,SIGNAL(clicked()),this,SLOT(voltageCalc()));
     connect(ui->voltageDeleteData,SIGNAL(clicked()),this,SLOT(voltageDataDelete()));
+
 }
 
 PageCalibration::~PageCalibration()
@@ -37,6 +38,8 @@ void PageCalibration::setMPPT(MPPTInterface *mppt){
         ui->calibraitonTable->addParamRow(mMPPT->mpptConfig(),"cal_InputVoltageOffset");
         ui->calibraitonTable->addParamRow(mMPPT->mpptConfig(),"cal_OutputVoltageGain");
         ui->calibraitonTable->addParamRow(mMPPT->mpptConfig(),"cal_OutputVoltageOffset");
+        ui->calibraitonTable->addParamRow(mMPPT->mpptConfig(),"cal_Calibrated");
+
     }
 }
 
