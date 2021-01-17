@@ -56,7 +56,7 @@ private slots:
 
 private:
     Ui::PageRtData *ui;
-    MPPTInterface *mMPPT;
+    MPPTInterface* mMPPT;
     QTimer *mTimer;
 
     QVector<double> mIin;

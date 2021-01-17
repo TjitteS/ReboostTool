@@ -158,6 +158,24 @@ void Commands::processPacket(QByteArray data)
         emit cellsReceived(mCellAmount,mCellVoltages);
 
        } break;
+    case COMM_MPPT_GET_SWEEP:{
+       mTimeoutSweep = 0;
+
+       int mDatapoints = 0;
+       QVector<double> vs,is;
+       vs.clear();
+       is.clear();
+
+       mDatapoints = vb.vbPopFrontUint8();
+
+       for (int i =0; i<mDatapoints;i++){
+           vs.append(vb.vbPopFrontDouble16(1e2));
+           is.append(vb.vbPopFrontDouble16(1e3));
+       }
+
+       emit sweepDataReceifed(vs,is);
+
+    }break;
 
     case COMM_PRINT:
         emit printReceived(QString::fromLatin1(vb));
@@ -232,6 +250,20 @@ void Commands::getCells()
 
     VByteArray vb;
     vb.vbAppendInt8(COMM_GET_BMS_CELLS);
+    emitData(vb);
+}
+
+void Commands::getSweep(double start, double end){
+    //if (mTimeoutSweep > 0){
+     //   return;
+    //}
+
+    mTimeoutSweep = mTimeoutCount;
+
+    VByteArray vb;
+    vb.append(COMM_MPPT_GET_SWEEP);
+    vb.vbAppendDouble16(start,1e2);
+    vb.vbAppendDouble16(end,1e2);
     emitData(vb);
 }
 

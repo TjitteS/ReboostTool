@@ -54,9 +54,10 @@ signals:
     void fwVersionReceived(int major, int minor, QString hw, QByteArray uuid);
     void ackReceived(QString ackType);
     void valuesReceived(MPPT_VALUES values);
+    void sweepDataReceifed(QVector<double> vs, QVector<double> is);
 
     void cellsReceived(int cellCount, QVector<double> cellVoltageArray);
-
+    void sweepReceifed(QVector<double> vs, QVector<double>is);
     void printReceived(QString str);
     void rotorPosReceived(double pos);
     void mpptConfigCheckResult(QStringList paramsNotSet);
@@ -66,6 +67,7 @@ public slots:
     void getFwVersion();
     void getValues();
     void getCells();
+    void getSweep(double start, double end);
     void sendTerminalCmd(QString cmd);
     void setDetect(disp_pos_mode mode);
     void samplePrint(debug_sampling_mode mode, int sample_len, int dec);
@@ -108,6 +110,7 @@ private:
     int mTimeoutBMSconf;
     int mTimeoutValues;
     int mTimeoutCells;
+    int mTimeoutSweep;
 };
 
 #endif // COMMANDS_H

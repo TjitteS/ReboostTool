@@ -92,7 +92,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent),ui(new Ui::MainWin
 
     qInstallMessageHandler(myMessageOutput);
 
-    mTimer->start(20);
+    mTimer->start(5);
 
     // Restore size and position
     if (mSettings.contains("mainwindow/size")) {
@@ -502,40 +502,6 @@ void MainWindow::reloadPages()
     ui->pageWidget->addWidget(mPageconfigSettings);
     addPageItem(tr("Settings"),"://res/icons/Horizontal Settings Mixer-96.png","",false,true);
 
-    //mPageFirmware = new PageFirmware(this);
-    //mPageFirmware->setMPPT(mMPPT);
-    //ui->pageWidget->addWidget(mPageFirmware);
-    //addPageItem(tr("Firmware"), "://res/icons/Electronics-96.png", "", true);
-
-    //mPageMasterSettings = new PageMasterSettings(this);
-    //mPageMasterSettings->setMPPT(mMPPT);
-    //ui->pageWidget->addWidget(mPageMasterSettings);
-    //addPageItem(tr("Master Settings"), "://res/icons/Outgoing Data-96.png", "", true);
-
-    //mSlaveSettings = new PageSlaveSettings(this);
-    //mSlaveSettings->setMPPT(mMPPT);
-    //ui->pageWidget->addWidget(mSlaveSettings);
-    //addPageItem(tr("Slave Settings"), "://res/icons/Outgoing Data-96.png", "", true);
-
-    //mPageSlaveGeneral = new PageSlaveGeneral(this);
-    //mPageSlaveGeneral->setMPPT(mMPPT);
-    //ui->pageWidget->addWidget(mPageSlaveGeneral);
-    //addPageItem(tr("General"), "://res/icons/Horizontal Settings Mixer-96.png","", false, true);
-
-    //mPageSlaveSwitch = new PageSlaveSwitch(this);
-    //mPageSlaveSwitch->setMPPT(mMPPT);
-    //ui->pageWidget->addWidget(mPageSlaveSwitch);
-    //addPageItem(tr("Switch"), "://res/icons/Toggle Off-96_2.png","", false, true);
-
-    //mPageSlaveIO = new PageSlaveIO(this);
-    //mPageSlaveIO->setMPPT(mMPPT);
-    //ui->pageWidget->addWidget(mPageSlaveIO);
-    //addPageItem(tr("IO"), "://res/icons/Rs 232 Male-96.png","", false, true);
-
-    //mPageSlaveFANs = new PageSlaveFAN(this);
-    //mPageSlaveFANs->setMPPT(mMPPT);
-    //ui->pageWidget->addWidget(mPageSlaveFANs);
-    //addPageItem(tr("FANs"), "://res/icons/fan-96.png","", false, true);
 
     mPageDataAnalysis = new PageDataAnalysis(this);
     mPageDataAnalysis->setMPPT(mMPPT);
@@ -546,6 +512,12 @@ void MainWindow::reloadPages()
     mPageRtData->setMPPT(mMPPT);
     ui->pageWidget->addWidget(mPageRtData);
     addPageItem(tr("Realtime Data"), "://res/icons/rt_off.png", "", false, true);
+
+    mPageSweep = new PageSweep(this);
+    mPageSweep->setMPPT(mMPPT);
+    ui->pageWidget->addWidget(mPageSweep);
+    addPageItem(tr("Sweep"), "://res/icons/iv.png", "", false, true);
+
 
     mPageTerminal = new PageTerminal(this);
     mPageTerminal->setMPPT(mMPPT);

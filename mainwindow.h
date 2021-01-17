@@ -51,24 +51,13 @@
 #include "pages/pageterminal.h"
 #include "pages/pagedebugprint.h"
 
-//#include "pages/pagefirmware.h"
-//#include "pages/pagemastersettings.h"
-//#include "pages/pagemastergeneral.h"
-//#include "pages/pagemasterswitch.h"
-//#include "pages/pagemastercell.h"
-//#include "pages/pagemasterdisplay.h"
-//#include "pages/pageslavesettings.h"
-//#include "pages/pageslavegeneral.h"
-//#include "pages/pageslaveswitch.h"
-//#include "pages/pageslaveio.h"
-//#include "pages/pageslavefan.h"
-
 #include "pages/pagesettings.h"
 
 //MPPT Pages
 #include "pages/pageconfig.h"
 #include "pages/pagecalibration.h"
 #include "pages/pageconfigsettings.h"
+#include "pages/pagesweep.h"
 
 
 namespace Ui {
@@ -134,8 +123,12 @@ private:
 
     PageWelcome *mPageWelcome;
     PageConnection *mPageConnection;
+
     PageDataAnalysis *mPageDataAnalysis;
     PageRtData *mPageRtData;
+    PageSweep *mPageSweep;
+
+
     PageTerminal *mPageTerminal;
     PageDebugPrint *mPageDebugPrint;
 
