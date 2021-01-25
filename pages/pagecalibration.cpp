@@ -30,14 +30,29 @@ void PageCalibration::setMPPT(MPPTInterface *mppt){
     if(mMPPT){
         connect(mMPPT->commands(),SIGNAL(valuesReceived(MPPT_VALUES)),this,SLOT(updateValues(MPPT_VALUES)));
 
+        ui->calibraitonTable->addRowSeparator("Input Current");
         ui->calibraitonTable->addParamRow(mMPPT->mpptConfig(),"cal_InputCurrentGain");
         ui->calibraitonTable->addParamRow(mMPPT->mpptConfig(),"cal_InputCurrentOffset");
+
+        ui->calibraitonTable->addRowSeparator("Output Current");
         ui->calibraitonTable->addParamRow(mMPPT->mpptConfig(),"cal_OutputCurrentGain");
         ui->calibraitonTable->addParamRow(mMPPT->mpptConfig(),"cal_OutputCurrentOffset");
+
+        ui->calibraitonTable->addRowSeparator("Input Voltage");
         ui->calibraitonTable->addParamRow(mMPPT->mpptConfig(),"cal_InputVoltageGain");
         ui->calibraitonTable->addParamRow(mMPPT->mpptConfig(),"cal_InputVoltageOffset");
+
+        ui->calibraitonTable->addRowSeparator("Output Current");
         ui->calibraitonTable->addParamRow(mMPPT->mpptConfig(),"cal_OutputVoltageGain");
         ui->calibraitonTable->addParamRow(mMPPT->mpptConfig(),"cal_OutputVoltageOffset");
+
+        ui->calibraitonTable->addRowSeparator("Temperature Measurement");
+        ui->calibraitonTable->addParamRow(mMPPT->mpptConfig(),"cal_Temperature_B");
+        ui->calibraitonTable->addParamRow(mMPPT->mpptConfig(),"cal_Temperature_R");
+        ui->calibraitonTable->addParamRow(mMPPT->mpptConfig(),"cal_Temperature_Ref");
+
+        ui->calibraitonTable->addRowSeparator("General Calibration");
+        ui->calibraitonTable->addParamRow(mMPPT->mpptConfig(),"cal_ADC_delay");
         ui->calibraitonTable->addParamRow(mMPPT->mpptConfig(),"cal_Calibrated");
 
     }

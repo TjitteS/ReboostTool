@@ -35,7 +35,6 @@ RtDataText::RtDataText(QWidget *parent) : QWidget(parent)
 void RtDataText::setValues(const MPPT_VALUES &values)
 {
     mValues = values;
-    //mValues.opState.remove(0, 11);
     update();
 }
 
@@ -87,11 +86,11 @@ void RtDataText::paintEvent(QPaintEvent *event)
     const double vidw = event->rect().width();
 
     // Left info box
-    str.sprintf("Power    : %.2f V\n"
-                "Vin    : %.2f A\n"
-                "Vout    : %.1f W\n"
-                "Iin    : %.3f V\n"
-                "Iout : %.3f V\n",
+    str.sprintf("Power    : %.2f  W\n"
+                "Vin      : %.2f  V\n"
+                "Vout     : %.1f   V\n"
+                "Iin      : %.3f V\n"
+                "Iout     : %.3f V\n",
                 mValues.Power,
                 mValues.Vin,
                 mValues.Vout,
@@ -107,7 +106,19 @@ void RtDataText::paintEvent(QPaintEvent *event)
                      Qt::AlignLeft, str);
 
     // Middle info box
-    str.sprintf("No Data");;
+    std::string fault = mValues.fault.toStdString();
+    std::string mode = mValues.mode.toStdString();
+
+    str.sprintf("mode   : %s\n"
+                "fault  : %s\n"
+                "Eff    : %.1f %%\n"
+                "T amb  : %.1f  C\n"
+                "T sink : %.1f  C\n",
+                mValues.mode.toLocal8Bit().data(),
+                mValues.fault.toLocal8Bit().data(),
+                mValues.Eff*100.0f,
+                mValues.TemperatureAmbient,
+                mValues.TemperatureHeatsink);
 
     painter.setOpacity(0.7);
     painter.fillRect(vidw / 2.0 - bbox_w / 2.0, 0, bbox_w, bbow_h, Qt::black);

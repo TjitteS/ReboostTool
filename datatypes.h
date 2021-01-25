@@ -180,9 +180,10 @@ struct MPPT_VALUES {
     Q_PROPERTY(double Vout                MEMBER Vout)
     Q_PROPERTY(double TemperatureAmbient  MEMBER TemperatureAmbient)
     Q_PROPERTY(double TemperatureHeatsink MEMBER TemperatureHeatsink)
-    Q_PROPERTY(double TemperatureMCU      MEMBER TemperatureMCU)
     Q_PROPERTY(double Ipv                 MEMBER Ipv)
     Q_PROPERTY(double Power               MEMBER Power)
+    Q_PROPERTY(double Eff                 MEMBER Eff)
+
 
     public:
     double  Iin;
@@ -192,8 +193,11 @@ struct MPPT_VALUES {
     double  Vout;
     double  TemperatureAmbient;
     double  TemperatureHeatsink;
-    double  TemperatureMCU;
     double  Power;
+    double  Eff;
+
+    QString mode;
+    QString fault;
 };
 
 Q_DECLARE_METATYPE(MPPT_VALUES)
@@ -301,6 +305,15 @@ typedef enum {
     OP_STATE_FORCEON,									// 11
 } OperationalStateTypedef;
 
+typedef enum PhaseMode_t{
+    PhaseMode_CIV,
+    PhaseMode_CIC,
+    PhaseMode_MinInputCurrent,
+    PhaseMode_COV,
+    PhaseMode_COC,
+    PhaseMode_Fault,
+}PhaseMode_t;
+
 typedef enum PhaseFault_t{
     Converter_OK,
     Converter_ConfigError,
@@ -308,6 +321,7 @@ typedef enum PhaseFault_t{
     Converter_OutputOverVolt,
     Converter_OutputOverCurrent,
     Converter_InputOverCurrent,
+    Converter_InputUnderCurrent,
     Converter_PhaseOverCurrent,
     Converter_Fault,
 }PhaseFault_t;

@@ -24,6 +24,9 @@
        <property name="accessibleName">
         <string/>
        </property>
+       <property name="tabPosition">
+        <enum>QTabWidget::North</enum>
+       </property>
        <property name="tabShape">
         <enum>QTabWidget::Triangular</enum>
        </property>
@@ -40,23 +43,13 @@
          </item>
         </layout>
        </widget>
-       <widget class="QWidget" name="Voltage">
+       <widget class="QWidget" name="IV">
         <attribute name="title">
-         <string>Voltage</string>
-        </attribute>
-        <layout class="QVBoxLayout" name="verticalLayout_2">
-         <item>
-          <widget class="QCustomPlot" name="VoltageGraph" native="true"/>
-         </item>
-        </layout>
-       </widget>
-       <widget class="QWidget" name="Current">
-        <attribute name="title">
-         <string>Current</string>
+         <string>Voltage and Current</string>
         </attribute>
         <layout class="QVBoxLayout" name="verticalLayout_7">
          <item>
-          <widget class="QCustomPlot" name="CurrentGraph" native="true"/>
+          <widget class="QCustomPlot" name="IVGraph" native="true"/>
          </item>
         </layout>
        </widget>

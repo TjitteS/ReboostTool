@@ -58,6 +58,7 @@
 #include "pages/pagecalibration.h"
 #include "pages/pageconfigsettings.h"
 #include "pages/pagesweep.h"
+#include "pages/pagecansettings.h"
 
 
 namespace Ui {
@@ -135,6 +136,7 @@ private:
     PageConfig *mPageConfig;
     PageCalibration *mPageCalibration;
     PageconfigSettings *mPageconfigSettings;
+    PageCanSettings * mPageCanSettings;
 
     PageSettings *mPageSettings;
 

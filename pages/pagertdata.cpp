@@ -37,9 +37,8 @@ PageRtData::PageRtData(QWidget *parent) :
 
     mUpdateValPlot = false;
 
-          ui->PowerGraph->setInteractions(QCP::iRangeDrag | QCP::iRangeZoom);
-        ui->VoltageGraph->setInteractions(QCP::iRangeDrag | QCP::iRangeZoom);
-        ui->CurrentGraph->setInteractions(QCP::iRangeDrag | QCP::iRangeZoom);
+    ui->PowerGraph->setInteractions(QCP::iRangeDrag | QCP::iRangeZoom);
+    ui->IVGraph->setInteractions(QCP::iRangeDrag | QCP::iRangeZoom);
     ui->TemperatureGraph->setInteractions(QCP::iRangeDrag | QCP::iRangeZoom);
 
     //Add Power Graph traces
@@ -49,27 +48,31 @@ PageRtData::PageRtData(QWidget *parent) :
     ui->PowerGraph->graph(graphIndex)->setName("Power");
     graphIndex++;
 
+
     //Add Voltage graph traces
     graphIndex = 0;
-    ui->VoltageGraph->addGraph();
-    ui->VoltageGraph->graph(graphIndex)->setPen(QPen(Qt::darkGreen));
-    ui->VoltageGraph->graph(graphIndex)->setName("InputVoltage");
+    ui->IVGraph->addGraph();
+    ui->IVGraph->graph(graphIndex)->setPen(QPen(Qt::darkGreen));
+    ui->IVGraph->graph(graphIndex)->setName("InputVoltage");
     graphIndex++;
 
-    ui->VoltageGraph->addGraph();
-    ui->VoltageGraph->graph(graphIndex)->setPen(QPen(Qt::darkBlue));
-    ui->VoltageGraph->graph(graphIndex)->setName("InputVoltage");
+    ui->IVGraph->addGraph();
+    ui->IVGraph->graph(graphIndex)->setPen(QPen(Qt::darkBlue));
+    ui->IVGraph->graph(graphIndex)->setName("Output Voltage");
     graphIndex++;
 
     //Add Current graph traces.
-    graphIndex = 0;
-    ui->CurrentGraph->addGraph();
-    ui->CurrentGraph->graph(graphIndex)->setPen(QPen(Qt::green));
-    ui->CurrentGraph->graph(graphIndex)->setName("Input current");
+    ui->IVGraph->addGraph(ui->IVGraph->xAxis,ui->IVGraph->yAxis2);
+    ui->IVGraph->graph(graphIndex)->setPen(QPen(Qt::green));
+    ui->IVGraph->graph(graphIndex)->setName("Input current");
     graphIndex++;
-    ui->CurrentGraph->addGraph();
-    ui->CurrentGraph->graph(graphIndex)->setPen(QPen(Qt::blue));
-    ui->CurrentGraph->graph(graphIndex)->setName("Output current");
+    ui->IVGraph->addGraph(ui->IVGraph->xAxis,ui->IVGraph->yAxis2);
+    ui->IVGraph->graph(graphIndex)->setPen(QPen(Qt::blue));
+    ui->IVGraph->graph(graphIndex)->setName("Output current");
+    graphIndex++;
+    ui->IVGraph->addGraph(ui->IVGraph->xAxis,ui->IVGraph->yAxis2);
+    ui->IVGraph->graph(graphIndex)->setPen(QPen(Qt::blue));
+    ui->IVGraph->graph(graphIndex)->setName("PV Current");
     graphIndex++;
 
     //Add Temperature graph traces
@@ -82,11 +85,6 @@ PageRtData::PageRtData(QWidget *parent) :
     ui->TemperatureGraph->addGraph();
     ui->TemperatureGraph->graph(graphIndex)->setPen(QPen(Qt::green));
     ui->TemperatureGraph->graph(graphIndex)->setName("Ambient temeprature");
-    graphIndex++;
-
-    ui->TemperatureGraph->addGraph();
-    ui->TemperatureGraph->graph(graphIndex)->setPen(QPen(Qt::darkYellow));
-    ui->TemperatureGraph->graph(graphIndex)->setName("MCU temeprature");
     graphIndex++;
 
     QFont legendFont = font();
@@ -105,25 +103,16 @@ PageRtData::PageRtData(QWidget *parent) :
     //ui->PowerGraph->yAxis2->setVisible(true);
 
     //Voltage graph
-    ui->VoltageGraph->legend->setVisible(true);
-    ui->VoltageGraph->legend->setFont(legendFont);
-    ui->VoltageGraph->axisRect()->insetLayout()->setInsetAlignment(0, Qt::AlignRight|Qt::AlignBottom);
-    ui->VoltageGraph->legend->setBrush(QBrush(QColor(255,255,255,230)));
-    ui->VoltageGraph->xAxis->setLabel("Seconds (s)");
-    ui->VoltageGraph->yAxis->setLabel("Voltage (V)");
-    //ui->VoltageGraph->yAxis2->setLabel("Current (A)");
-    ui->VoltageGraph->yAxis->setRange(0, 60);
-   // ui->VoltageGraph->yAxis2->setRange(-5, 5);
-    //ui->VoltageGraph->yAxis2->setVisible(true);
-
-    //Current Graph
-    ui->CurrentGraph->legend->setVisible(true);
-    ui->CurrentGraph->legend->setFont(legendFont);
-    ui->CurrentGraph->axisRect()->insetLayout()->setInsetAlignment(0, Qt::AlignRight|Qt::AlignBottom);
-    ui->CurrentGraph->legend->setBrush(QBrush(QColor(255,255,255,230)));
-    ui->CurrentGraph->xAxis->setLabel("Seconds (s)");
-    ui->CurrentGraph->yAxis->setLabel("Current (A)");
-    ui->CurrentGraph->yAxis->setRange(0, 4.2);
+    ui->IVGraph->legend->setVisible(true);
+    ui->IVGraph->legend->setFont(legendFont);
+    ui->IVGraph->axisRect()->insetLayout()->setInsetAlignment(0, Qt::AlignRight|Qt::AlignBottom);
+    ui->IVGraph->legend->setBrush(QBrush(QColor(255,255,255,230)));
+    ui->IVGraph->xAxis->setLabel("Seconds (s)");
+    ui->IVGraph->yAxis->setLabel("Voltage (V)");
+    ui->IVGraph->yAxis2->setLabel("Current (A)");
+    ui->IVGraph->yAxis->setRange(0, 60);
+    ui->IVGraph->yAxis2->setRange(-5, 5);
+    ui->IVGraph->yAxis2->setVisible(true);
 
     //Temperature Graph
     ui->TemperatureGraph->legend->setVisible(true);
@@ -133,7 +122,6 @@ PageRtData::PageRtData(QWidget *parent) :
     ui->TemperatureGraph->xAxis->setLabel("Seconds (s)");
     ui->TemperatureGraph->yAxis->setLabel("Temperature (\u00B0C)");
     ui->TemperatureGraph->yAxis->setRange(0, 60);
-
 
     connect(mTimer, SIGNAL(timeout()),this, SLOT(timerSlot()));
 }
@@ -171,33 +159,29 @@ void PageRtData::timerSlot()
         ui->PowerGraph->graph(graphIndex++)->setData(xAxis,mPower);
 
         graphIndex = 0;
-        ui->CurrentGraph->graph(graphIndex++)->setData(xAxis,mIin);
-        ui->CurrentGraph->graph(graphIndex++)->setData(xAxis,mIout);
+        ui->IVGraph->graph(graphIndex++)->setData(xAxis,mVin);
+        ui->IVGraph->graph(graphIndex++)->setData(xAxis,mVout);
+        ui->IVGraph->graph(graphIndex++)->setData(xAxis,mIin);
+        ui->IVGraph->graph(graphIndex++)->setData(xAxis,mIout);
+        ui->IVGraph->graph(graphIndex++)->setData(xAxis,mIpv);
 
-        graphIndex = 0;
-        ui->VoltageGraph->graph(graphIndex++)->setData(xAxis,mVin);
-        ui->VoltageGraph->graph(graphIndex++)->setData(xAxis,mVout);
 
         graphIndex = 0;
         ui->TemperatureGraph->graph(graphIndex++)->setData(xAxis,mTemperatureAmbient);
         ui->TemperatureGraph->graph(graphIndex++)->setData(xAxis,mTemperatureHeatsink);
-        ui->TemperatureGraph->graph(graphIndex++)->setData(xAxis,mTemperatureMCU);
 
 
 
 
         if (ui->autoscaleButton->isChecked()) {
             ui->PowerGraph->rescaleAxes();
-            ui->VoltageGraph->rescaleAxes();
-            ui->CurrentGraph->rescaleAxes();
+            ui->IVGraph->rescaleAxes();
             ui->TemperatureGraph->rescaleAxes();
         }
 
         ui->PowerGraph->replot();
-        ui->VoltageGraph->replot();
-        ui->CurrentGraph->replot();
+        ui->IVGraph->replot();
         ui->TemperatureGraph->replot();
-
 
         mUpdateValPlot = false;
     }
@@ -205,7 +189,7 @@ void PageRtData::timerSlot()
 
 void PageRtData::valuesReceived(MPPT_VALUES values)
 {
-    //ui->rtText->setValues(values);
+    ui->rtText->setValues(values);
 
     const int maxS = 500;
 
@@ -215,7 +199,6 @@ void PageRtData::valuesReceived(MPPT_VALUES values)
     appendDoubleAndTrunc(&mVout,              values.Vout,               maxS);
     appendDoubleAndTrunc(&mTemperatureAmbient,values.TemperatureAmbient, maxS);
     appendDoubleAndTrunc(&mTemperatureHeatsink,values.TemperatureHeatsink,maxS);
-    appendDoubleAndTrunc(&mTemperatureMCU,     values.TemperatureMCU,    maxS);
     appendDoubleAndTrunc(&mIpv,               values.Ipv,                maxS);
     appendDoubleAndTrunc(&mPower,            values.Power,               maxS);
 
@@ -256,8 +239,7 @@ void PageRtData::updateZoom()
              (ui->zoomVButton->isChecked() ? Qt::Vertical : 0));
 
     ui->PowerGraph->axisRect()->setRangeZoom(plotOrientations);
-    ui->VoltageGraph->axisRect()->setRangeZoom(plotOrientations);
-    ui->CurrentGraph->axisRect()->setRangeZoom(plotOrientations);
+    ui->IVGraph->axisRect()->setRangeZoom(plotOrientations);
     ui->TemperatureGraph->axisRect()->setRangeZoom(plotOrientations);
 }
 
@@ -276,13 +258,11 @@ void PageRtData::on_zoomVButton_toggled(bool checked)
 void PageRtData::on_rescaleButton_clicked()
 {
     ui->PowerGraph->rescaleAxes();
-    ui->VoltageGraph->rescaleAxes();
-    ui->CurrentGraph->rescaleAxes();
+    ui->IVGraph->rescaleAxes();
     ui->TemperatureGraph->rescaleAxes();
 
     ui->PowerGraph->replot();
-    ui->VoltageGraph->replot();
-    ui->CurrentGraph->replot();
+    ui->IVGraph->replot();
     ui->TemperatureGraph->replot();
 }
 

@@ -1,5 +1,6 @@
 FORMS += \
     $$PWD/pagecalibration.ui \
+    $$PWD/pagecansettings.ui \
     $$PWD/pageconfig.ui \
     $$PWD/pageconfigsettings.ui \
     $$PWD/pageconnection.ui \
@@ -16,6 +17,7 @@ FORMS += \
 
 HEADERS += \
     $$PWD/pagecalibration.h \
+    $$PWD/pagecansettings.h \
     $$PWD/pageconfig.h \
     $$PWD/pageconfigsettings.h \
     $$PWD/pageconnection.h \
@@ -32,6 +34,7 @@ HEADERS += \
 
 SOURCES += \
     $$PWD/pagecalibration.cpp \
+    $$PWD/pagecansettings.cpp \
     $$PWD/pageconfig.cpp \
     $$PWD/pageconfigsettings.cpp \
     $$PWD/pageconnection.cpp \

@@ -502,6 +502,10 @@ void MainWindow::reloadPages()
     ui->pageWidget->addWidget(mPageconfigSettings);
     addPageItem(tr("Settings"),"://res/icons/Horizontal Settings Mixer-96.png","",false,true);
 
+    mPageCanSettings = new PageCanSettings(this);
+    mPageCanSettings->SetMPPT(mMPPT);
+    ui->pageWidget->addWidget(mPageCanSettings);
+    addPageItem(tr("CAN Settings"),"://res/icons/Horizontal Settings Mixer-96.png","",false,true);
 
     mPageDataAnalysis = new PageDataAnalysis(this);
     mPageDataAnalysis->setMPPT(mMPPT);

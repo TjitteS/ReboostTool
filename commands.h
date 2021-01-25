@@ -86,6 +86,8 @@ private:
     void firmwareUploadUpdate(bool isTimeout);
     QString opStateToStr(OperationalStateTypedef fault);
     QString phaseFaultToStr(PhaseFault_t mode);
+    QString phaseModeToStr(PhaseMode_t mode);
+
     QTimer *mTimer;
     bool mSendCan;
     int mCanId;

@@ -18,7 +18,7 @@ p, li { white-space: pre-wrap; }
             <minDouble>-999</minDouble>
             <showDisplay>0</showDisplay>
             <stepDouble>1</stepDouble>
-            <valDouble>4.25</valDouble>
+            <valDouble>4.255</valDouble>
             <vTxDoubleScale>10000</vTxDoubleScale>
             <suffix> A/V</suffix>
             <vTx>9</vTx>
@@ -62,7 +62,7 @@ p, li { white-space: pre-wrap; }
             <minDouble>-1000</minDouble>
             <showDisplay>0</showDisplay>
             <stepDouble>1</stepDouble>
-            <valDouble>4.25</valDouble>
+            <valDouble>4.255</valDouble>
             <vTxDoubleScale>1</vTxDoubleScale>
             <suffix> A/V</suffix>
             <vTx>9</vTx>
@@ -177,6 +177,92 @@ p, li { white-space: pre-wrap; }
             <suffix> mV</suffix>
             <vTx>9</vTx>
         </cal_OutputVoltageOffset>
+        <cal_Temperature_B>
+            <longName>NTC Beta</longName>
+            <type>1</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;TODO&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine></cDefine>
+            <editorDecimalsDouble>0</editorDecimalsDouble>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxDouble>10000</maxDouble>
+            <minDouble>0</minDouble>
+            <showDisplay>0</showDisplay>
+            <stepDouble>100</stepDouble>
+            <valDouble>4000</valDouble>
+            <vTxDoubleScale>1</vTxDoubleScale>
+            <suffix> </suffix>
+            <vTx>7</vTx>
+        </cal_Temperature_B>
+        <cal_Temperature_R>
+            <longName>NTC Reference Resistance</longName>
+            <type>2</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;TODO&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine></cDefine>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxInt>1000</maxInt>
+            <minInt>0</minInt>
+            <showDisplay>0</showDisplay>
+            <stepInt>1</stepInt>
+            <valInt>34464</valInt>
+            <suffix> kOhm</suffix>
+            <vTx>3</vTx>
+        </cal_Temperature_R>
+        <cal_Temperature_Ref>
+            <longName>NTC Reference Temperature</longName>
+            <type>1</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;TODO&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine></cDefine>
+            <editorDecimalsDouble>1</editorDecimalsDouble>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxDouble>100</maxDouble>
+            <minDouble>-100</minDouble>
+            <showDisplay>0</showDisplay>
+            <stepDouble>100</stepDouble>
+            <valDouble>25</valDouble>
+            <vTxDoubleScale>200</vTxDoubleScale>
+            <suffix> kOhm</suffix>
+            <vTx>7</vTx>
+        </cal_Temperature_Ref>
+        <cal_ADC_delay>
+            <longName>ADC Timing Delay</longName>
+            <type>1</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;TODO&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine></cDefine>
+            <editorDecimalsDouble>3</editorDecimalsDouble>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxDouble>10</maxDouble>
+            <minDouble>-10</minDouble>
+            <showDisplay>0</showDisplay>
+            <stepDouble>0.1</stepDouble>
+            <valDouble>0.1</valDouble>
+            <vTxDoubleScale>2000</vTxDoubleScale>
+            <suffix> us</suffix>
+            <vTx>7</vTx>
+        </cal_ADC_delay>
         <cal_Calibrated>
             <longName>Calibrated</longName>
             <type>5</type>
@@ -592,7 +678,7 @@ p, li { white-space: pre-wrap; }
             <minDouble>0</minDouble>
             <showDisplay>0</showDisplay>
             <stepDouble>1</stepDouble>
-            <valDouble>-31.072</valDouble>
+            <valDouble>0</valDouble>
             <vTxDoubleScale>1000</vTxDoubleScale>
             <suffix> A</suffix>
             <vTx>7</vTx>
@@ -609,6 +695,132 @@ p, li { white-space: pre-wrap; }
             <cDefine></cDefine>
             <valInt>0</valInt>
         </settings_outputEnable>
+        <settings_meterFilterCoeficient>
+            <longName>meter filter</longName>
+            <type>1</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;TODO&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine></cDefine>
+            <editorDecimalsDouble>2</editorDecimalsDouble>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxDouble>1</maxDouble>
+            <minDouble>0</minDouble>
+            <showDisplay>0</showDisplay>
+            <stepDouble>0.01</stepDouble>
+            <valDouble>0.5</valDouble>
+            <vTxDoubleScale>10000</vTxDoubleScale>
+            <suffix></suffix>
+            <vTx>7</vTx>
+        </settings_meterFilterCoeficient>
+        <mppt_PO_Stepsize>
+            <longName>P&amp;O Stepsize</longName>
+            <type>1</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;TODO&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine></cDefine>
+            <editorDecimalsDouble>3</editorDecimalsDouble>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxDouble>200</maxDouble>
+            <minDouble>0</minDouble>
+            <showDisplay>0</showDisplay>
+            <stepDouble>0.1</stepDouble>
+            <valDouble>0.1</valDouble>
+            <vTxDoubleScale>1000</vTxDoubleScale>
+            <suffix>V</suffix>
+            <vTx>7</vTx>
+        </mppt_PO_Stepsize>
+        <mppt_PO_Timestep>
+            <longName>P&amp;O Timestep</longName>
+            <type>2</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;TODO&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine></cDefine>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxInt>2000</maxInt>
+            <minInt>0</minInt>
+            <showDisplay>0</showDisplay>
+            <stepInt>1</stepInt>
+            <valInt>10</valInt>
+            <suffix> ms</suffix>
+            <vTx>3</vTx>
+        </mppt_PO_Timestep>
+        <can_baudrate>
+            <longName>Baudrate</longName>
+            <type>2</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;TODO&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine></cDefine>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxInt>1000</maxInt>
+            <minInt>1</minInt>
+            <showDisplay>0</showDisplay>
+            <stepInt>1</stepInt>
+            <valInt>250</valInt>
+            <suffix>kHz</suffix>
+            <vTx>3</vTx>
+        </can_baudrate>
+        <can_samplepoint>
+            <longName>Sample Point</longName>
+            <type>1</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Sample point for the CAN-bus interface.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine></cDefine>
+            <editorDecimalsDouble>1</editorDecimalsDouble>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxDouble>100</maxDouble>
+            <minDouble>0</minDouble>
+            <showDisplay>0</showDisplay>
+            <stepDouble>1</stepDouble>
+            <valDouble>75</valDouble>
+            <vTxDoubleScale>100</vTxDoubleScale>
+            <suffix> %</suffix>
+            <vTx>7</vTx>
+        </can_samplepoint>
+        <can_generalCanId>
+            <longName>General ID</longName>
+            <type>2</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;General CAN-ID. The value from the rotary encoder is added to this value to generate the CAN-ID used by the MPPT.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine></cDefine>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxInt>100000000</maxInt>
+            <minInt>0</minInt>
+            <showDisplay>0</showDisplay>
+            <stepInt>1</stepInt>
+            <valInt>0</valInt>
+            <suffix></suffix>
+            <vTx>3</vTx>
+        </can_generalCanId>
     </Params>
     <SerOrder>
         <ser>cal_InputCurrentGain</ser>
@@ -619,6 +831,10 @@ p, li { white-space: pre-wrap; }
         <ser>cal_InputVoltageOffset</ser>
         <ser>cal_OutputVoltageGain</ser>
         <ser>cal_OutputVoltageOffset</ser>
+        <ser>cal_Temperature_B</ser>
+        <ser>cal_Temperature_R</ser>
+        <ser>cal_Temperature_Ref</ser>
+        <ser>cal_ADC_delay</ser>
         <ser>cal_Calibrated</ser>
         <ser>settings_SwitchingFrequency</ser>
         <ser>settings_ControllerFrequency</ser>
@@ -640,5 +856,11 @@ p, li { white-space: pre-wrap; }
         <ser>settings_PhaseHighSideEnableCurrent</ser>
         <ser>settings_PhaseCurrentMin</ser>
         <ser>settings_outputEnable</ser>
+        <ser>settings_meterFilterCoeficient</ser>
+        <ser>mppt_PO_Stepsize</ser>
+        <ser>mppt_PO_Timestep</ser>
+        <ser>can_baudrate</ser>
+        <ser>can_samplepoint</ser>
+        <ser>can_generalCanId</ser>
     </SerOrder>
 </ConfigParams>
