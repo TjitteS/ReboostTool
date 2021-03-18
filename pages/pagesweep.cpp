@@ -110,6 +110,10 @@ void PageSweep::sweepDataReceifed(QVector<double> vs, QVector<double> is){
     double maxv = 0;
     double maxi = 0;
     double maxp = 0;
+    double minv = 1e6;
+    double mini = 1e6;
+    double minp = 1e6;
+
     mps.clear();
     for(int i =0; i < mis.size(); i++){
         mps.append(mis[i]*mvs[i]);
@@ -117,13 +121,14 @@ void PageSweep::sweepDataReceifed(QVector<double> vs, QVector<double> is){
         if(mvs[i] > maxv)maxv=mvs[i];
         if(mis[i] > maxi)maxi=mis[i];
         if(mps[i] > maxp)maxp=mps[i];
-
+        if(mvs[i] < minv)minv=mvs[i];
+        if(mis[i] < mini)mini=mis[i];
+        if(mps[i] < minp)minp=mps[i];
     }
 
-    ui->sweepPlot->yAxis->setRange(0, maxi*1.1);
-    ui->sweepPlot->yAxis2->setRange(0, maxp*1.1);
-
-    ui->sweepPlot->xAxis->setRange(0, maxv*1.1);
+    ui->sweepPlot->yAxis->setRange (mini, maxi*1.05);
+    ui->sweepPlot->yAxis2->setRange(minp, maxp*1.05);
+    ui->sweepPlot->xAxis->setRange (minv, maxv*1.05);
     mUpdateValPlot = true;
 }
 

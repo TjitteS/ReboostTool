@@ -229,7 +229,7 @@
      <normaloff>:/res/icons/Save as-96.png</normaloff>:/res/icons/Save as-96.png</iconset>
    </property>
    <property name="text">
-    <string>Save BMS Configuration XML as...</string>
+    <string>Save Configuration XML as...</string>
    </property>
   </action>
   <action name="actionLoadBMSConfXml">
@@ -238,7 +238,7 @@
      <normaloff>:/res/icons/Open Folder-96.png</normaloff>:/res/icons/Open Folder-96.png</iconset>
    </property>
    <property name="text">
-    <string>Load BMS Configuration XML</string>
+    <string>Load Configuration XML</string>
    </property>
   </action>
   <action name="actionDisconnect">
@@ -324,7 +324,7 @@
      <normaloff>:/res/icons/About-96.png</normaloff>:/res/icons/About-96.png</iconset>
    </property>
    <property name="text">
-    <string>About DieBieMS Tool</string>
+    <string>About TPEE MPPT Tool</string>
    </property>
    <property name="toolTip">
     <string>About DieBieMS Tool</string>
@@ -345,7 +345,7 @@
      <normaloff>:/res/icons/Save as-96.png</normaloff>:/res/icons/Save as-96.png</iconset>
    </property>
    <property name="text">
-    <string>Save BMS Configuration C Header as...</string>
+    <string>Save Configuration C Header as...</string>
    </property>
   </action>
   <action name="actionSavempptConfigurationHeaderWrap">
@@ -354,7 +354,7 @@
      <normaloff>:/res/icons/Save as-96.png</normaloff>:/res/icons/Save as-96.png</iconset>
    </property>
    <property name="text">
-    <string>Save BMS Configuration C Header (ifdef wrapped) as...</string>
+    <string>Save Configuration C Header (ifdef wrapped) as...</string>
    </property>
    <property name="toolTip">
     <string>Save BMS Configuration C Header (ifdef wrapped) as</string>
@@ -491,7 +491,7 @@
      <normaloff>:/res/icons/About-96.png</normaloff>:/res/icons/About-96.png</iconset>
    </property>
    <property name="text">
-    <string>DieBieMS Tool Changelog</string>
+    <string>MPPT Tool Changelog</string>
    </property>
    <property name="toolTip">
     <string>DieBieMS Tool Changelog</string>

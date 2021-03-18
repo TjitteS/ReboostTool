@@ -502,7 +502,7 @@ QString Commands::phaseFaultToStr(PhaseFault_t mode)
     case Converter_OutputOverVolt:     return "Output Over Voltage";
     case Converter_OutputOverCurrent:  return "Output Over Current";
     case Converter_InputOverCurrent:   return "Input Over Current";
-    case Converter_InputUnderCurrent:   return "Input Under Current";
+    case Converter_InputUnderCurrent:  return "Input Under Current";
 
     case Converter_PhaseOverCurrent:   return "Phase Over Current";
     case Converter_Fault:              return "Fault";
@@ -514,11 +514,11 @@ QString Commands::phaseModeToStr(PhaseMode_t mode)
 {
 
     switch (mode) {
-    case PhaseMode_CIV:             return "Constand Input Voltage";
-    case PhaseMode_CIC:             return "Constand input Current";
+    case PhaseMode_CIV:             return "Constant Input Voltage";
+    case PhaseMode_CIC:             return "Constant input Current";
     case PhaseMode_MinInputCurrent: return "Minimal Input Current";
-    case PhaseMode_COV:             return "Constand Output Voltage";
-    case PhaseMode_COC:             return "Constand Output Current";
+    case PhaseMode_COV:             return "Constant Output Voltage";
+    case PhaseMode_COC:             return "Constant Output Current";
     case PhaseMode_Fault:           return "Fault";
 
     default: return "Unknown Mode";

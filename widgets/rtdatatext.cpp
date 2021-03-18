@@ -86,11 +86,11 @@ void RtDataText::paintEvent(QPaintEvent *event)
     const double vidw = event->rect().width();
 
     // Left info box
-    str.sprintf("Power    : %.2f  W\n"
-                "Vin      : %.2f  V\n"
-                "Vout     : %.1f   V\n"
-                "Iin      : %.3f V\n"
-                "Iout     : %.3f V\n",
+    str.sprintf("Power    : %.2fW\n"
+                "Vin      : %.2fV\n"
+                "Vout     : %.1fV\n"
+                "Iin      : %.3fA\n"
+                "Iout     : %.3fA\n",
                 mValues.Power,
                 mValues.Vin,
                 mValues.Vout,
@@ -111,9 +111,9 @@ void RtDataText::paintEvent(QPaintEvent *event)
 
     str.sprintf("mode   : %s\n"
                 "fault  : %s\n"
-                "Eff    : %.1f %%\n"
-                "T amb  : %.1f  C\n"
-                "T sink : %.1f  C\n",
+                "Eff    : %.1f%%\n"
+                "T sink : %.1fC\n"
+                "T amb  : %.1fC\n",
                 mValues.mode.toLocal8Bit().data(),
                 mValues.fault.toLocal8Bit().data(),
                 mValues.Eff*100.0f,
