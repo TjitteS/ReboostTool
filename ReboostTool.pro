@@ -5,7 +5,7 @@
 #-------------------------------------------------
 
 # Version
-DT_VERSION = 0.21
+DT_VERSION = 0.1
 
 DEFINES += DT_VERSION=$$DT_VERSION
 
@@ -34,8 +34,8 @@ contains(DEFINES, HAS_SERIALPORT) {
 
 android: QT += androidextras
 
-android: TARGET = DieBieMSTool
-!android: TARGET = DieBieMSToolV$$DT_VERSION
+android: TARGET = ReboostTool
+!android: TARGET = ReboostToolV$$DT_VERSION
 
 TEMPLATE = app
 
