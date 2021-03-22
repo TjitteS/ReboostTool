@@ -26,6 +26,7 @@ private slots:
     void valuesReceived(MPPT_VALUES values);
     void sweepDataReceifed(QVector<double> vs, QVector<double> is);
     void sweepButtonClicked();
+    void saveSweep();
 
 private:
     Ui::PageSweep *ui;

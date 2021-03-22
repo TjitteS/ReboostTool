@@ -7,6 +7,7 @@ PageSweep::PageSweep(QWidget *parent) :
 {
     ui->setupUi(this);
     connect(ui->Sweep,SIGNAL(clicked()),this,SLOT(sweepButtonClicked()));
+    connect(ui->pushButton,SIGNAL(clicked()),this,SLOT(saveSweep()));
 
     mMPPT = 0;
 
@@ -137,6 +138,28 @@ void PageSweep::sweepButtonClicked(){
         double start = ui->Start->value();
         double end = ui->End->value();
         mMPPT->commands()->getSweep(start,end);
+    }
+}
+
+void PageSweep::saveSweep(){
+    QString fileName = QFileDialog::getSaveFileName(this,
+            tr("Save Sweep"), "",
+            tr("csv (*.csv);;All Files (*)"));
+
+    if (fileName.isEmpty()){
+            return;
+    }
+    else {
+        QFile file(fileName);
+        if (!file.open(QIODevice::WriteOnly)) {
+            QMessageBox::information(this, tr("Unable to open file"),file.errorString());
+            return;
+        }
+        QTextStream out(&file);
+        out << "V\tI\tP\n";
+        for(int i =0; i < mis.size(); i++){
+            out << mvs[i] << '\t' << mis[i] << '\t'<< mps[i] << '\n';
+        }
     }
 }
 

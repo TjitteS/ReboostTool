@@ -80,16 +80,16 @@
       </widget>
      </item>
      <item>
-      <widget class="QCheckBox" name="Cont">
+      <widget class="QPushButton" name="Sweep">
        <property name="text">
-        <string>Contineus</string>
+        <string>Sweep</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="Sweep">
+      <widget class="QPushButton" name="pushButton">
        <property name="text">
-        <string>Sweep</string>
+        <string>Export...</string>
        </property>
       </widget>
      </item>
