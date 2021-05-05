@@ -29,12 +29,6 @@ void PageconfigSettings::SetMPPT(MPPTInterface *mppt){
        ui->Settings->addParamRow(mMPPT->mpptConfig(),"settings_Q");
        ui->Settings->addParamRow(mMPPT->mpptConfig(),"settings_Klim");
 
-       ui->Settings->addRowSeparator("Soft Limmits");
-       ui->Settings->addParamRow(mMPPT->mpptConfig(),"settings_OutputVoltageLimitSoft");
-       ui->Settings->addParamRow(mMPPT->mpptConfig(),"settings_InputVoltageLimitSoft");
-       ui->Settings->addParamRow(mMPPT->mpptConfig(),"settings_OutputCurrentLimitSoft");
-       ui->Settings->addParamRow(mMPPT->mpptConfig(),"settings_InputCurrentLimitSoft");
-
        ui->Settings->addRowSeparator("Hard Litmits");
        ui->Settings->addParamRow(mMPPT->mpptConfig(),"settings_OutputVoltageLimitHard");
        ui->Settings->addParamRow(mMPPT->mpptConfig(),"settings_InputVoltageLimitHard");
@@ -45,10 +39,7 @@ void PageconfigSettings::SetMPPT(MPPTInterface *mppt){
        ui->Settings->addParamRow(mMPPT->mpptConfig(),"settings_PhaseHighSideEnableCurrent");
        ui->Settings->addParamRow(mMPPT->mpptConfig(),"settings_PhaseCurrentMin");
        ui->Settings->addParamRow(mMPPT->mpptConfig(),"settings_outputEnable");
-       ui->Settings->addParamRow(mMPPT->mpptConfig(),"settings_meterFilterCoeficient");
 
-       ui->Settings->addRowSeparator("Tracking settings");
-       ui->Settings->addParamRow(mMPPT->mpptConfig(),"mppt_PO_Stepsize");
-       ui->Settings->addParamRow(mMPPT->mpptConfig(),"mppt_PO_Timestep");
+
       }
 }

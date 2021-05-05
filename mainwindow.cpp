@@ -492,6 +492,11 @@ void MainWindow::reloadPages()
     ui->pageWidget->addWidget(mPageConnection);
     addPageItem(tr("Connection"), "://res/icons/Connected-96.png", "", true);
 
+    mPageConfig = new PageConfig(this);
+    mPageConfig->setMPPT(mMPPT);
+    ui->pageWidget->addWidget(mPageConfig);
+    addPageItem(tr("Configuration"), "://res/icons/Connected-96.png", "", true);
+
     mPageCalibration = new PageCalibration(this);
     mPageCalibration->setMPPT(mMPPT);
     ui->pageWidget->addWidget(mPageCalibration);
@@ -500,12 +505,12 @@ void MainWindow::reloadPages()
     mPageconfigSettings = new PageconfigSettings(this);
     mPageconfigSettings->SetMPPT(mMPPT);
     ui->pageWidget->addWidget(mPageconfigSettings);
-    addPageItem(tr("Settings"),"://res/icons/Horizontal Settings Mixer-96.png","",false,true);
+    addPageItem(tr("Hardware Settings"),"://res/icons/Horizontal Settings Mixer-96.png","",false,true);
 
     mPageCanSettings = new PageCanSettings(this);
     mPageCanSettings->SetMPPT(mMPPT);
     ui->pageWidget->addWidget(mPageCanSettings);
-    addPageItem(tr("CAN Settings"),"://res/icons/Horizontal Settings Mixer-96.png","",false,true);
+    addPageItem(tr("User Settings"),"://res/icons/Horizontal Settings Mixer-96.png","",false,true);
 
     mPageDataAnalysis = new PageDataAnalysis(this);
     mPageDataAnalysis->setMPPT(mMPPT);
