@@ -31,5 +31,12 @@ void PageCanSettings::SetMPPT(MPPTInterface *mppt){
           ui->CanSettings->addParamRow(mMPPT->mpptConfig(),"settings_meterFilterCoeficient");
           ui->CanSettings->addParamRow(mMPPT->mpptConfig(),"mppt_PO_Stepsize");
           ui->CanSettings->addParamRow(mMPPT->mpptConfig(),"mppt_PO_Timestep");
+          ui->CanSettings->addParamRow(mMPPT->mpptConfig(),"mppt_PO_maxgradient");
+
+          ui->CanSettings->addParamRow(mMPPT->mpptConfig(),"mppt_jump_PowerThreshold");
+          ui->CanSettings->addParamRow(mMPPT->mpptConfig(),"mppt_jump_rangeMax");
+          ui->CanSettings->addParamRow(mMPPT->mpptConfig(),"mppt_jump_rangeMin");
+          ui->CanSettings->addParamRow(mMPPT->mpptConfig(),"mppt_jump_Rate");
+
     }
 }
