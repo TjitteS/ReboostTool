@@ -115,6 +115,9 @@ DISTFILES += \
     android/gradlew \
     android/res/values/libs.xml \
     android/build.gradle \
-    android/gradle/wrapper/gradle-wrapper.properties
+    android/gradle/wrapper/gradle-wrapper.properties \
+    res/TPEE.ico
 
 ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android
+
+RC_ICONS = TPEE.ico

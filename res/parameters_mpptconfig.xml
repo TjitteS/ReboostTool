@@ -482,7 +482,7 @@ p, li { white-space: pre-wrap; }
             <stepDouble>1</stepDouble>
             <valDouble>72</valDouble>
             <vTxDoubleScale>100</vTxDoubleScale>
-            <suffix>A</suffix>
+            <suffix>V</suffix>
             <vTx>7</vTx>
         </settings_OutputVoltageLimitSoft>
         <settings_OutputVoltageLimitHard>
@@ -778,7 +778,7 @@ p, li { white-space: pre-wrap; }
             <stepDouble>1</stepDouble>
             <valDouble>100</valDouble>
             <vTxDoubleScale>100</vTxDoubleScale>
-            <suffix> ms</suffix>
+            <suffix> dpdv</suffix>
             <vTx>7</vTx>
         </mppt_PO_maxgradient>
         <mppt_jump_PowerThreshold>

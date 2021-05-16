@@ -110,7 +110,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent),ui(new Ui::MainWin
         }
     }
 
-    mPageDebugPrint->printConsole("DieBieMSTool " + mVersion + " started<br>");
+    mPageDebugPrint->printConsole("Reboost Tool " + mVersion + " started<br>");
 }
 
 MainWindow::~MainWindow()

@@ -33,13 +33,11 @@ PageConnection::PageConnection(QWidget *parent) :
     ui->setupUi(this);
     layout()->setContentsMargins(0, 0, 0, 0);
 
-    QString lastTcpServer =
-        QSettings().value("tcp_server", ui->tcpServerEdit->text()).toString();
-    ui->tcpServerEdit->setText(lastTcpServer);
+    //QString lastTcpServer = QSettings().value("tcp_server", ui->tcpServerEdit->text()).toString();
+    //ui->tcpServerEdit->setText(lastTcpServer);
 
-    int lastTcpPort =
-        QSettings().value("tcp_port", ui->tcpPortBox->value()).toInt();
-    ui->tcpPortBox->setValue(lastTcpPort);
+    //int lastTcpPort =QSettings().value("tcp_port", ui->tcpPortBox->value()).toInt();
+    //ui->tcpPortBox->setValue(lastTcpPort);
 
     mMPPT = 0;
     mTimer = new QTimer(this);
@@ -79,7 +77,7 @@ void PageConnection::setMPPT(MPPTInterface *dieBieMS)
         } else {
             name = lastBleAddr;
         }
-        ui->bleDevBox->insertItem(0, name, lastBleAddr);
+        //ui->bleDevBox->insertItem(0, name, lastBleAddr);
     }
 
     on_serialRefreshButton_clicked();
@@ -102,44 +100,6 @@ void PageConnection::timerSlot()
             ui->canFwdBox->setValue(mMPPT->commands()->getCanSendId());;
         }
     }
-}
-
-void PageConnection::bleScanDone(QVariantMap devs, bool done)
-{
-    if (done) {
-        ui->bleScanButton->setEnabled(true);
-    }
-
-    ui->bleDevBox->clear();
-    for (auto d: devs.keys()) {
-        QString devName = devs.value(d).toString();
-        QString addr = d;
-        QString setName = mMPPT->getBleName(addr);
-
-        if (!setName.isEmpty()) {
-            QString name;
-            name += setName;
-            name += " [";
-            name += addr;
-            name += "]";
-            ui->bleDevBox->insertItem(0, name, addr);
-        } else if (devName.contains("VESC") || devName.contains("Metr Pro")) {
-            QString name;
-            name += devName;
-            name += " [";
-            name += addr;
-            name += "]";
-            ui->bleDevBox->insertItem(0, name, addr);
-        } else {
-            QString name;
-            name += devName;
-            name += " [";
-            name += addr;
-            name += "]";
-            ui->bleDevBox->addItem(name, addr);
-        }
-    }
-    ui->bleDevBox->setCurrentIndex(0);
 }
 
 void PageConnection::on_serialRefreshButton_clicked()
@@ -169,23 +129,9 @@ void PageConnection::on_serialConnectButton_clicked()
     }
 }
 
-void PageConnection::on_tcpDisconnectButton_clicked()
-{
-    if (mMPPT) {
-        mMPPT->disconnectPort();
-    }
-}
 
-void PageConnection::on_tcpConnectButton_clicked()
-{
-    if (mMPPT) {
-        QString tcpServer = ui->tcpServerEdit->text();
-        int tcpPort = ui->tcpPortBox->value();
-        mMPPT->connectTcp(tcpServer, tcpPort);
-        QSettings().setValue("tcp_server", tcpServer);
-        QSettings().setValue("tcp_port", tcpPort);
-    }
-}
+
+
 
 void PageConnection::on_canFwdBox_valueChanged(int arg1)
 {
@@ -213,28 +159,4 @@ void PageConnection::on_autoConnectButton_clicked()
     Utility::autoconnectBlockingWithProgress(mMPPT, this);
 }
 
-void PageConnection::on_bleScanButton_clicked()
-{
-    if (mMPPT) {
-        mMPPT->bleDevice()->startScan();
-        ui->bleScanButton->setEnabled(false);
-    }
-}
 
-void PageConnection::on_bleDisconnectButton_clicked()
-{
-    if (mMPPT) {
-        mMPPT->disconnectPort();
-    }
-}
-
-void PageConnection::on_bleConnectButton_clicked()
-{
-    if (mMPPT) {
-        if (ui->bleDevBox->count() > 0) {
-            QString bleAddr = ui->bleDevBox->currentData().toString();
-            mMPPT->connectBle(bleAddr);
-            QSettings().setValue("ble_addr", bleAddr);
-        }
-    }
-}

@@ -43,20 +43,20 @@ public:
 
 private slots:
     void timerSlot();
-    void bleScanDone(QVariantMap devs, bool done);
+    //void bleScanDone(QVariantMap devs, bool done);
 
     void on_serialRefreshButton_clicked();
     void on_serialDisconnectButton_clicked();
     void on_serialConnectButton_clicked();
-    void on_tcpDisconnectButton_clicked();
-    void on_tcpConnectButton_clicked();
+    //void on_tcpDisconnectButton_clicked();
+    //void on_tcpConnectButton_clicked();
     void on_canFwdBox_valueChanged(int arg1);
     void on_helpButton_clicked();
     void on_canFwdButton_toggled(bool checked);
     void on_autoConnectButton_clicked();
-    void on_bleScanButton_clicked();
-    void on_bleDisconnectButton_clicked();
-    void on_bleConnectButton_clicked();
+    //void on_bleScanButton_clicked();
+    //void on_bleDisconnectButton_clicked();
+    //void on_bleConnectButton_clicked();
 
 private:
     Ui::PageConnection *ui;
