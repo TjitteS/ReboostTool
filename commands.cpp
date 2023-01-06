@@ -127,15 +127,15 @@ void Commands::processPacket(QByteArray data)
         mTimeoutValues = 0;
         MPPT_VALUES values;
 
-        values.Iin                = vb.vbPopFrontDouble16(3e3);
-        values.Iout               = vb.vbPopFrontDouble16(3e3);
-        values.Ipv                = vb.vbPopFrontDouble16(3e3);
-        values.Vin                = vb.vbPopFrontDouble16(0.3e3);
-        values.Vout               = vb.vbPopFrontDouble16(0.3e3);
-        values.TemperatureAmbient = vb.vbPopFrontDouble16(0.1e3);
-        values.TemperatureHeatsink= vb.vbPopFrontDouble16(0.1e3);
+        values.Iin                = vb.vbPopFrontDouble32Auto();
+        values.Iout               = vb.vbPopFrontDouble32Auto();
+        values.Ipv                = vb.vbPopFrontDouble32Auto();
+        values.Vin                = vb.vbPopFrontDouble32Auto();
+        values.Vout               = vb.vbPopFrontDouble32Auto();
+        values.TemperatureAmbient = vb.vbPopFrontDouble32Auto();
+        values.TemperatureHeatsink= vb.vbPopFrontDouble32Auto();
         values.Power              = values.Vout*values.Iout;
-        values.Eff                = vb.vbPopFrontDouble16(3.0e4);
+        values.Eff                = vb.vbPopFrontDouble32Auto();
         values.mode               = phaseModeToStr((PhaseMode_t)(vb.vbPopFrontUint8()));
         values.fault              = phaseFaultToStr((PhaseFault_t)(vb.vbPopFrontUint8()));
 
@@ -395,7 +395,7 @@ void Commands::firmwareUploadUpdate(bool isTimeout)
         return;
     }
 
-    const int app_packet_size = 200;
+    const int app_packet_size = 192;
     const int retries = 5;
     const int timeout = 350;
 
@@ -433,6 +433,7 @@ void Commands::firmwareUploadUpdate(bool isTimeout)
             vb.vbAppendUint32(0);
             vb.vbAppendUint32(mNewFirmware.size());
             vb.vbAppendUint16(crc);
+            vb.vbAppendUint16(0); //Append extra zero to keep offset aligned with 8 bytes.
             emitData(vb);
         } else {
             mFirmwareState++;
@@ -458,12 +459,13 @@ void Commands::firmwareUploadUpdate(bool isTimeout)
             int send_size = fw_size_left > app_packet_size ? app_packet_size : fw_size_left;
 
             VByteArray vb;
-            vb.append((char)COMM_WRITE_NEW_APP_DATA);
 
             if (mFirmwareIsBootloader) {
+                vb.append((char)COMM_WRITE_NEW_APP_DATA);
                 vb.vbAppendUint32(mFimwarePtr + (1024 * 2 * 50));
             } else {
-                vb.vbAppendUint32(mFimwarePtr + 6);
+                vb.append((char)COMM_WRITE_NEW_APP_DATA);
+                vb.vbAppendUint32(mFimwarePtr + 8);
             }
 
             vb.append(mNewFirmware.mid(mFimwarePtr, send_size));

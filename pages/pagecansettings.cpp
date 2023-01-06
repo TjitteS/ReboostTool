@@ -38,5 +38,10 @@ void PageCanSettings::SetMPPT(MPPTInterface *mppt){
           ui->CanSettings->addParamRow(mMPPT->mpptConfig(),"mppt_jump_rangeMin");
           ui->CanSettings->addParamRow(mMPPT->mpptConfig(),"mppt_jump_Rate");
 
+          ui->CanSettings->addRowSeparator("Other settings");
+          ui->CanSettings->addParamRow(mMPPT->mpptConfig(),"settings_PhaseHighSideEnableCurrent");
+          ui->CanSettings->addParamRow(mMPPT->mpptConfig(),"settings_PhaseCurrentMin");
+          ui->CanSettings->addParamRow(mMPPT->mpptConfig(),"settings_outputEnable");
+
     }
 }

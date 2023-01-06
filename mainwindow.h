@@ -50,8 +50,9 @@
 #include "pages/pagertdata.h"
 #include "pages/pageterminal.h"
 #include "pages/pagedebugprint.h"
-
 #include "pages/pagesettings.h"
+#include "pages/pagefirmware.h"
+
 
 //MPPT Pages
 #include "pages/pageconfig.h"
@@ -139,7 +140,7 @@ private:
     PageCanSettings * mPageCanSettings;
 
     PageSettings *mPageSettings;
-
+    PageFirmware *mPageFirmware;
 
 
     void addPageItem(QString name, QString icon = "", QString groupIcon = "", bool bold = false, bool indented = false);

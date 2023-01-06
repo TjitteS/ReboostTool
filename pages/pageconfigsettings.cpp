@@ -35,10 +35,10 @@ void PageconfigSettings::SetMPPT(MPPTInterface *mppt){
        ui->Settings->addParamRow(mMPPT->mpptConfig(),"settings_OutputCurrentLimitHard");
        ui->Settings->addParamRow(mMPPT->mpptConfig(),"settings_InputCurrentLimitHard");
 
-       ui->Settings->addRowSeparator("Other settings");
-       ui->Settings->addParamRow(mMPPT->mpptConfig(),"settings_PhaseHighSideEnableCurrent");
-       ui->Settings->addParamRow(mMPPT->mpptConfig(),"settings_PhaseCurrentMin");
-       ui->Settings->addParamRow(mMPPT->mpptConfig(),"settings_outputEnable");
+       //ui->Settings->addRowSeparator("Other settings");
+       //ui->Settings->addParamRow(mMPPT->mpptConfig(),"settings_PhaseHighSideEnableCurrent");
+      // ui->Settings->addParamRow(mMPPT->mpptConfig(),"settings_PhaseCurrentMin");
+       //ui->Settings->addParamRow(mMPPT->mpptConfig(),"settings_outputEnable");
 
 
       }

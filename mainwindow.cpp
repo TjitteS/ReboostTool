@@ -497,15 +497,15 @@ void MainWindow::reloadPages()
     ui->pageWidget->addWidget(mPageConfig);
     addPageItem(tr("Configuration"), "://res/icons/Connected-96.png", "", true);
 
-    mPageCalibration = new PageCalibration(this);
-    mPageCalibration->setMPPT(mMPPT);
-    ui->pageWidget->addWidget(mPageCalibration);
-    addPageItem(tr("Calibration"), "://res/icons/Speed-96.png", "", false,true);
+    //mPageCalibration = new PageCalibration(this);
+    //mPageCalibration->setMPPT(mMPPT);
+    //ui->pageWidget->addWidget(mPageCalibration);
+    //addPageItem(tr("Calibration"), "://res/icons/Speed-96.png", "", false,true);
 
-    mPageconfigSettings = new PageconfigSettings(this);
-    mPageconfigSettings->SetMPPT(mMPPT);
-    ui->pageWidget->addWidget(mPageconfigSettings);
-    addPageItem(tr("Hardware Settings"),"://res/icons/Horizontal Settings Mixer-96.png","",false,true);
+    //mPageconfigSettings = new PageconfigSettings(this);
+    //mPageconfigSettings->SetMPPT(mMPPT);
+    //ui->pageWidget->addWidget(mPageconfigSettings);
+    //addPageItem(tr("Hardware Settings"),"://res/icons/Horizontal Settings Mixer-96.png","",false,true);
 
     mPageCanSettings = new PageCanSettings(this);
     mPageCanSettings->SetMPPT(mMPPT);
@@ -537,9 +537,14 @@ void MainWindow::reloadPages()
     ui->pageWidget->addWidget(mPageDebugPrint);
     addPageItem(tr("Debug Console"), "://res/icons/Bug-96.png", "", true);
 
-    mPageSettings = new PageSettings(this);
-    ui->pageWidget->addWidget(mPageSettings);
-    addPageItem(tr("Tool Settings"), "://res/icons/Settings-96.png", "", true);
+    //mPageSettings = new PageSettings(this);
+    //ui->pageWidget->addWidget(mPageSettings);
+    //addPageItem(tr("Tool Settings"), "://res/icons/Settings-96.png", "", true);
+
+    mPageFirmware = new PageFirmware(this);
+    mPageFirmware->setMPPT(mMPPT);
+    ui->pageWidget->addWidget(mPageFirmware);
+    addPageItem(tr("Firmware"), "://res/icons/Electronics-96.png", "", true);
 
     // Adjust sizes
     QFontMetrics fm(this->font());
