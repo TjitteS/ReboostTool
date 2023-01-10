@@ -254,7 +254,7 @@ p, li { white-space: pre-wrap; }
             <vTx>3</vTx>
         </mppt_PO_Timestep>
         <mppt_PO_maxgradient>
-            <longName>P&amp;O Max gradient</longName>
+            <longName>P&amp;O Step Size Gain</longName>
             <type>1</type>
             <transmittable>1</transmittable>
             <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -297,50 +297,6 @@ p, li { white-space: pre-wrap; }
             <suffix>W</suffix>
             <vTx>9</vTx>
         </mppt_jump_PowerThreshold>
-        <mppt_jump_rangeMax>
-            <longName>Jump range max</longName>
-            <type>1</type>
-            <transmittable>1</transmittable>
-            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;TODO&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
-            <cDefine></cDefine>
-            <editorDecimalsDouble>1</editorDecimalsDouble>
-            <editorScale>1</editorScale>
-            <editAsPercentage>0</editAsPercentage>
-            <maxDouble>999</maxDouble>
-            <minDouble>0</minDouble>
-            <showDisplay>0</showDisplay>
-            <stepDouble>1</stepDouble>
-            <valDouble>0</valDouble>
-            <vTxDoubleScale>100</vTxDoubleScale>
-            <suffix>V</suffix>
-            <vTx>9</vTx>
-        </mppt_jump_rangeMax>
-        <mppt_jump_rangeMin>
-            <longName>Jump range min</longName>
-            <type>1</type>
-            <transmittable>1</transmittable>
-            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;TODO&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
-            <cDefine></cDefine>
-            <editorDecimalsDouble>1</editorDecimalsDouble>
-            <editorScale>1</editorScale>
-            <editAsPercentage>0</editAsPercentage>
-            <maxDouble>999</maxDouble>
-            <minDouble>0</minDouble>
-            <showDisplay>0</showDisplay>
-            <stepDouble>1</stepDouble>
-            <valDouble>0</valDouble>
-            <vTxDoubleScale>100</vTxDoubleScale>
-            <suffix>V</suffix>
-            <vTx>9</vTx>
-        </mppt_jump_rangeMin>
         <mppt_jump_Rate>
             <longName>Jump rate</longName>
             <type>2</type>
@@ -439,8 +395,6 @@ p, li { white-space: pre-wrap; }
         <ser>mppt_PO_Timestep</ser>
         <ser>mppt_PO_maxgradient</ser>
         <ser>mppt_jump_PowerThreshold</ser>
-        <ser>mppt_jump_rangeMax</ser>
-        <ser>mppt_jump_rangeMin</ser>
         <ser>mppt_jump_Rate</ser>
         <ser>can_baudrate</ser>
         <ser>can_samplepoint</ser>
