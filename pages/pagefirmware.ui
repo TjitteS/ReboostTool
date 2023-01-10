@@ -22,11 +22,14 @@
      <layout class="QVBoxLayout" name="verticalLayout_3">
       <item>
        <widget class="QTabWidget" name="fwTabWidget">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
         <property name="tabShape">
          <enum>QTabWidget::Triangular</enum>
         </property>
         <property name="currentIndex">
-         <number>0</number>
+         <number>2</number>
         </property>
         <widget class="QWidget" name="tab">
          <attribute name="title">
@@ -41,7 +44,6 @@
                <widget class="QLabel" name="label">
                 <property name="font">
                  <font>
-                  <weight>75</weight>
                   <bold>true</bold>
                  </font>
                 </property>
@@ -64,7 +66,6 @@
                <widget class="QLabel" name="label_2">
                 <property name="font">
                  <font>
-                  <weight>75</weight>
                   <bold>true</bold>
                  </font>
                 </property>
@@ -174,6 +175,9 @@
          </layout>
         </widget>
         <widget class="QWidget" name="tab_3">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
          <attribute name="title">
           <string>Bootloader</string>
          </attribute>

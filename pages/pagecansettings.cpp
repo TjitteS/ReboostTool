@@ -26,6 +26,9 @@ void PageCanSettings::SetMPPT(MPPTInterface *mppt){
           ui->CanSettings->addParamRow(mMPPT->mpptConfig(),"settings_InputVoltageLimitSoft");
           ui->CanSettings->addParamRow(mMPPT->mpptConfig(),"settings_OutputCurrentLimitSoft");
           ui->CanSettings->addParamRow(mMPPT->mpptConfig(),"settings_InputCurrentLimitSoft");
+          ui->CanSettings->addParamRow(mMPPT->mpptConfig(),"settings_TemperatureLimitStart");
+          ui->CanSettings->addParamRow(mMPPT->mpptConfig(),"settings_TemperatureLimitEnd");
+
 
           ui->CanSettings->addRowSeparator("Tracking settings");
           ui->CanSettings->addParamRow(mMPPT->mpptConfig(),"settings_meterFilterCoeficient");

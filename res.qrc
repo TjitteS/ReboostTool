@@ -123,7 +123,6 @@
         <file>res/logo.png</file>
         <file>res/bg.png</file>
         <file>res/parameters_mpptConfig.xml</file>
-        <file>res/bootloaders/DieBieMS.bin</file>
         <file>res/logo_sq.png</file>
         <file>res/icons/Beoordeling literatuuronderzoek academische pabo HRLotteS-RRMH2.docx</file>
         <file>res/icons/collapse_off.png</file>
@@ -131,7 +130,7 @@
         <file>res/icons/iv.png</file>
         <file>res/images/vedder_nunchuk.jpg</file>
         <file>res/parameters_mpptconfig.xml</file>
-        <file>res/firmwares/SEC-B175-7A/OpenSEC-SIM_BOOST.bin</file>
         <file>res/firmwares/SEC-B175-7A/OpenSEC_SEC-B175-7A_default.bin</file>
+        <file>res/firmwares/SEC-B175-7A/OpenSEC_SEC-B175-7A-SIM_default.bin</file>
     </qresource>
 </RCC>

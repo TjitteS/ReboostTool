@@ -507,6 +507,7 @@ QString Commands::phaseFaultToStr(PhaseFault_t mode)
     case Converter_InputUnderCurrent:  return "Input Under Current";
 
     case Converter_PhaseOverCurrent:   return "Phase Over Current";
+
     case Converter_Fault:              return "Fault";
     default: return "Unknown fault";
     }
@@ -521,6 +522,7 @@ QString Commands::phaseModeToStr(PhaseMode_t mode)
     case PhaseMode_MinInputCurrent: return "Minimal Input Current";
     case PhaseMode_COV:             return "Constant Output Voltage";
     case PhaseMode_COC:             return "Constant Output Current";
+    case PhaseMode_TD:             return "Teperature de-rating";
     case PhaseMode_Fault:           return "Fault";
 
     default: return "Unknown Mode";

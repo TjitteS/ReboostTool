@@ -161,7 +161,7 @@ void PageFirmware::updateFwList()
         while (it.hasNext()) {
             QFileInfo fi(it.next());
             if (ui->showNonDefaultBox->isChecked() ||
-                    fi.fileName().toLower() == "diebiems_default.bin") {
+                    fi.fileName() == "OpenSEC_SEC-B175-7A_default.bin") {
                 QListWidgetItem *item = new QListWidgetItem;
                 item->setText(fi.fileName());
                 item->setData(Qt::UserRole, fi.absoluteFilePath());
@@ -262,7 +262,7 @@ void PageFirmware::on_uploadButton_clicked()
             file.setFileName(ui->fwEdit->text());
 
             QFileInfo fileInfo(file.fileName());
-            if (!(fileInfo.fileName().startsWith("DieBie")) || !fileInfo.fileName().endsWith(".bin")) {
+            if (!(fileInfo.fileName().startsWith("OpenSEC")) || !fileInfo.fileName().endsWith(".bin")) {
                 QMessageBox::critical(this,tr("Upload Error"),tr("The selected file name seems to be invalid."));
                 return;
             }
