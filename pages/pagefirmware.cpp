@@ -1,16 +1,16 @@
 /*
     Original copyright 2018 Benjamin Vedder benjamin@vedder.se and the VESC Tool project ( https://github.com/vedderb/vesc_tool )
     Now forked to:
-    Danny Bokma github@diebie.nl
+    Tjitte@tpee.nl
 
-    This file is part of BMS Tool.
+    This file is part of Reboost Tool.
 
-    DieBieMS Tool is free software: you can redistribute it and/or modify
+    Reboost Tool is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    DieBieMS Tool is distributed in the hope that it will be useful,
+    Reboost Tool. is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
@@ -18,7 +18,6 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-
 #include "pagefirmware.h"
 #include "ui_pagefirmware.h"
 #include "widgets/helpdialog.h"
@@ -232,7 +231,7 @@ void PageFirmware::on_uploadButton_clicked()
         if (!mMPPT->isPortConnected()) {
             QMessageBox::critical(this,
                                   tr("Connection Error"),
-                                  tr("The DiebieMS is not connected. Please connect it."));
+                                  tr("The SEC is not connected. Please connect it."));
             return;
         }
 
@@ -246,10 +245,10 @@ void PageFirmware::on_uploadButton_clicked()
                 if (ui->hwList->count() == 0) {
                     QMessageBox::warning(this,
                                          tr("Upload Error"),
-                                         tr("This version of DieBie does not include any firmware "
+                                         tr("This version of Reboost Tool does not include any firmware "
                                             "for your hardware version. You can either "
-                                            "upload a custom file or look for a later version of DieBieMS "
-                                            "Tool that might support your hardware."));
+                                            "upload a custom file or look for a later version of"
+                                            "Reboost Tool that might support your hardware."));
                 } else {
                     QMessageBox::warning(this,
                                          tr("Upload Error"),
@@ -275,7 +274,7 @@ void PageFirmware::on_uploadButton_clicked()
                 if (ui->blList->count() == 0) {
                     QMessageBox::warning(this,
                                          tr("Upload Error"),
-                                         tr("This version of DieBieMS does not include any bootloader "
+                                         tr("This version of Reboost Tool does not include any bootloader "
                                             "for your hardware version."));
                 } else {
                     QMessageBox::warning(this,
@@ -307,7 +306,7 @@ void PageFirmware::on_uploadButton_clicked()
         if (ui->fwTabWidget->currentIndex() == 0 && ui->hwList->count() == 1) {
             reply = QMessageBox::warning(this,
                                          tr("Warning"),
-                                         tr("Uploading new firmware will clear all settings on your DieBieMS "
+                                         tr("Uploading new firmware will clear all settings on your SEC "
                                             "and you have to do the configuration again. Do you want to "
                                             "continue?"),
                                          QMessageBox::Yes | QMessageBox::No, QMessageBox::No);
@@ -315,14 +314,14 @@ void PageFirmware::on_uploadButton_clicked()
             reply = QMessageBox::warning(this,
                                          tr("Warning"),
                                          tr("Uploading firmware for the wrong hardware version "
-                                            "WILL damage the DieBieMS for sure. Are you sure that you have "
+                                            "WILL damage the SEC for sure. Are you sure that you have "
                                             "chosen the correct hardware version?"),
                                          QMessageBox::Yes | QMessageBox::No, QMessageBox::No);
         } else if (ui->fwTabWidget->currentIndex() == 2) {
             reply = QMessageBox::warning(this,
                                          tr("Warning"),
-                                         tr("This will attempt to upload a bootloader to the connected DieBieMS. "
-                                            "If the connected DieBieMS already has a bootloader this will destroy "
+                                         tr("This will attempt to upload a bootloader to the connected SEC. "
+                                            "If the connected SEC already has a bootloader this will destroy "
                                             "the bootloader and firmware updates cannot be done anymore. Do "
                                             "you want to continue?"),
                                          QMessageBox::Yes | QMessageBox::No, QMessageBox::No);
@@ -339,7 +338,7 @@ void PageFirmware::on_uploadButton_clicked()
                                  tr("Warning"),
                                  tr("The firmware upload is now ongoing. After the upload has finished you must wait at least "
                                     "10 seconds before unplugging power. Otherwise the firmware will get corrupted and your "
-                                    "DieBieMS will become bricked. If that happens you need a SWD programmer to recover it."));
+                                    "SEC will become bricked. If that happens you need a SWD programmer to recover it."));
         }
     }
 }

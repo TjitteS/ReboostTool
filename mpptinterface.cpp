@@ -1,16 +1,16 @@
 ﻿/*
     Original copyright 2018 Benjamin Vedder benjamin@vedder.se and the VESC Tool project ( https://github.com/vedderb/vesc_tool )
     Now forked to:
-    Danny Bokma github@diebie.nl
+    Tjitte@tpee.nl
 
-    This file is part of BMS Tool.
+    This file is part of Reboost Tool.
 
-    DieBieMS Tool is free software: you can redistribute it and/or modify
+    Reboost Tool is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    DieBieMS Tool is distributed in the hope that it will be useful,
+    Reboost Tool. is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
@@ -446,8 +446,8 @@ QList<VSerialInfo_t> MPPTInterface::listSerialPorts()
         int index = res.size();
 
         if(port.manufacturer().startsWith("Silicon")) {
-            //info.name.insert(0, "DieBieMS - ");
-            info.name.append(" - DieBieMS");
+
+            info.name.append(" - Smart Energy Converter");
             info.isVesc = true;
             index = 0;
         } else {
@@ -595,7 +595,7 @@ void MPPTInterface::timerSlot()
                     emit statusMessage(tr("No firmware read response"), false);
                     emit messageDialog(tr("Read Firmware Version"),
                                        tr("Could not read firmware version. Make sure "
-                                          "that selected port really belongs to the DieBieMS. "),
+                                          "that selected port really belongs to a SEC. "),
                                        false, false);
                     disconnectPort();
                 }
@@ -689,16 +689,16 @@ void MPPTInterface::fwVersionReceived(int major, int minor, QString hw, QByteArr
         updateFwRx(false);
         mFwRetries = 0;
         disconnectPort();
-        emit messageDialog(tr("Error"), tr("The firmware on the connected DieBieMS is too old. Please"
+        emit messageDialog(tr("Error"), tr("The firmware on the connected SEC is too old. Please"
                                            " update it using a programmer."), false, false);
     } else if (fw_connected > highest_supported) {
         mCommands->setLimitedMode(true);
         updateFwRx(true);
         if (!wasReceived) {
-            emit messageDialog(tr("Warning"), tr("The connected DieBieMS has newer firmware than this version of"
-                                                " DieBieMS Tool supports. It is recommended that you update DieBieMS "
-                                                " Tool to the latest version. Alternatively, the firmware on"
-                                                " the connected DieBieMS can be downgraded in the firmware page."
+            emit messageDialog(tr("Warning"), tr("The connected SEC has newer firmware than this version of"
+                                                " Reboost Tool supports. It is recommended that you update "
+                                                " Reboost Tool to the latest version. Alternatively, the firmware on"
+                                                " the connected SEC can be downgraded in the firmware page."
                                                 " Until then, limited communication mode will be used where"
                                                 " only the firmware can be changed."), false, false);
         }
@@ -707,8 +707,8 @@ void MPPTInterface::fwVersionReceived(int major, int minor, QString hw, QByteArr
             mCommands->setLimitedMode(true);
             updateFwRx(true);
             if (!wasReceived) {
-                emit messageDialog(tr("Warning"), tr("The connected DieBieMS has too old firmware. Since the"
-                                                    " connected DieBieMS has firmware with bootloader support, it can be"
+                emit messageDialog(tr("Warning"), tr("The connected SEC has too old firmware. Since the"
+                                                    " connected SEC has firmware with bootloader support, it can be"
                                                     " updated from the Firmware page."
                                                     " Until then, limited communication mode will be used where only the"
                                                     " firmware can be changed."), false, false);
@@ -718,7 +718,7 @@ void MPPTInterface::fwVersionReceived(int major, int minor, QString hw, QByteArr
             mFwRetries = 0;
             disconnectPort();
             if (!wasReceived) {
-                emit messageDialog(tr("Error"), tr("The firmware on the connected DieBieMS is too old. Please"
+                emit messageDialog(tr("Error"), tr("The firmware on the connected SEC is too old. Please"
                                                    " update it using a programmer."), false, false);
             }
         }
@@ -726,12 +726,12 @@ void MPPTInterface::fwVersionReceived(int major, int minor, QString hw, QByteArr
         updateFwRx(true);
         if ((fw_connected < highest_supported)) {
             if (!wasReceived) {
-                //emit messageDialog(tr("Warning"), tr("The connected DieBieMS has compatible, but old firmware. It is recommended that you update it."), false, false);
+                //emit messageDialog(tr("Warning"), tr("The connected SEC has compatible, but old firmware. It is recommended that you update it."), false, false);
             }
         }
 
         QString fwStr;
-        fwStr.sprintf("Reboost Firmware Version %d.%d", major, minor);
+        fwStr.sprintf("SEC Firmware Version %d.%d", major, minor);
         if (!hw.isEmpty()) {
             fwStr += ", Hardware: " + hw;
         }
@@ -758,11 +758,11 @@ void MPPTInterface::fwVersionReceived(int major, int minor, QString hw, QByteArr
 
 void MPPTInterface::bmsconfUpdated()
 {
-    emit statusMessage(tr("BMS configuration updated"), true);
+    emit statusMessage(tr("SEC configuration updated"), true);
 }
 
 void MPPTInterface::bmsconfStored() {
-    emit statusMessage(tr("BMS configuration stored to Flash"), true);
+    emit statusMessage(tr("SEC configuration stored to Flash"), true);
 }
 
 void MPPTInterface::ackReceived(QString ackType)

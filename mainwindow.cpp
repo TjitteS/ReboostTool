@@ -1,16 +1,16 @@
 /*
     Original copyright 2018 Benjamin Vedder benjamin@vedder.se and the VESC Tool project ( https://github.com/vedderb/vesc_tool )
     Now forked to:
-    Danny Bokma github@diebie.nl
+    Tjitte@tpee.nl
 
-    This file is part of BMS Tool.
+    This file is part of Reboost Tool.
 
-    DieBieMS Tool is free software: you can redistribute it and/or modify
+    Reboost Tool is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    DieBieMS Tool is distributed in the hope that it will be useful,
+    Reboost Tool. is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
@@ -768,7 +768,7 @@ void MainWindow::on_actionWarrantyStatement_triggered()
 
 void MainWindow::on_actionDieBieMSToolChangelog_triggered()
 {
-    HelpDialog::showHelp(this, "DieBieMS Tool Changelog", Utility::vescToolChangeLog());
+    HelpDialog::showHelp(this, "Reboost Tool Changelog", Utility::vescToolChangeLog());
 }
 
 void MainWindow::on_actionFirmwareChangelog_triggered()

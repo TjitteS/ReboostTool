@@ -1,16 +1,16 @@
 /*
     Original copyright 2018 Benjamin Vedder benjamin@vedder.se and the VESC Tool project ( https://github.com/vedderb/vesc_tool )
     Now forked to:
-    Danny Bokma github@diebie.nl
+    Tjitte@tpee.nl
 
-    This file is part of BMS Tool.
+    This file is part of Reboost Tool.
 
-    DieBieMS Tool is free software: you can redistribute it and/or modify
+    Reboost Tool is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    DieBieMS Tool is distributed in the hope that it will be useful,
+    Reboost Tool. is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
@@ -18,7 +18,6 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-
 #include "utility.h"
 #include <cmath>
 #include <QProgressDialog>
@@ -114,7 +113,7 @@ bool Utility::autoconnectBlockingWithProgress(MPPTInterface *vesc, QWidget *pare
     bool res = vesc->autoconnect();
 
     if (!res) {
-        vesc->emitMessageDialog(QObject::tr("Autoconnect"),QObject::tr("Could not autoconnect. Make sure that the USB cable is plugged in and that the DieBieMS is powered."),false);
+        vesc->emitMessageDialog(QObject::tr("Autoconnect"),QObject::tr("Could not autoconnect. Make sure that the USB cable is plugged in and that the SEC is powered."),false);
     }
 
     return res;
@@ -171,10 +170,10 @@ QString Utility::vescToolChangeLog()
 
 QString Utility::aboutText()
 {
-    return tr("<b>DieBieMS Tool %1</b><br>"
-              "&copy; Danny Bokma 2018<br>"
-              "<a href=\"mailto:bms@diebie.nl\">bms@diebie.nl</a><br>"
-              "<a href=\"https://diebie.nl/\">https://diebie.nl/</a><br>"
+    return tr("<b>Reboost Tool %1</b><br>"
+              "&copy; TPEE 2018<br>"
+              "<a href=\"mailto:info@tpee.nl\">info@tpee.nl</a><br>"
+              "<a href=\"https://tpee.nl/\">https://tpee.nl/</a><br>"
               "Based on: ").
             arg(QString::number(DT_VERSION));
 }
