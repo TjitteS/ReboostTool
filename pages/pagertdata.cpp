@@ -29,7 +29,7 @@ PageRtData::PageRtData(QWidget *parent) :
     mMPPT = 0;
 
     mTimer = new QTimer(this);
-    mTimer->start(20);
+    mTimer->start(50);
 
     mSecondCounter = 0.0;
     mLastUpdateTime = 0;

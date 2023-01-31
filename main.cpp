@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
     // Settings
     QCoreApplication::setOrganizationName("TPEE");
     QCoreApplication::setOrganizationDomain("tpee.nl");
-    QCoreApplication::setApplicationName("TPEE Reboost Tool");
+    QCoreApplication::setApplicationName(QString("TPEE Reboost Tooool %1").arg(QString::number(DT_VERSION)));
 
     // DPI settings
     // TODO: http://www.qcustomplot.com/index.php/support/forum/1344

@@ -62,6 +62,8 @@ namespace {
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent),ui(new Ui::MainWindow){
     ui->setupUi(this);
 
+    this->setWindowTitle(QString("TPEE Reboost Tool V%1").arg(QString::number(DT_VERSION)));
+
     QLoggingCategory::setFilterRules("qt.network.ssl.warning=false");
 
     mVersion = QString::number(DT_VERSION);
@@ -152,22 +154,22 @@ void MainWindow::timerSlot()
         ui->actionCanFwd->setChecked(mMPPT->commands()->getSendCan());
     }
 
-    // RT data only every 5 iterations
+    // RT data only every 10 iterations
     if (ui->actionRtData->isChecked()) {
         static int values_cnt = 0;
         static int cells_cnt = 0;
 
         values_cnt++;
-        if(values_cnt >= 5) {
+        if(values_cnt >= 10) {
             values_cnt = 0;
             mMPPT->commands()->getValues();
         }
 
-        cells_cnt++;
-        if(cells_cnt >= 20) {
-            cells_cnt = 0;
-            mMPPT->commands()->getCells();
-        }
+        //cells_cnt++;
+        //if(cells_cnt >= 20) {
+        //    cells_cnt = 0;
+        //    mMPPT->commands()->getCells();
+        //}
     }
 
     // Send alive command once every 10 iterations

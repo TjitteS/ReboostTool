@@ -199,7 +199,7 @@ void Commands::processPacket(QByteArray data)
         break;
 
     case COMM_SET_MCCONF:
-        emit ackReceived("BMS Write OK");
+        emit ackReceived("SEC Write OK");
         break;
 
     case COMM_STORE_BMS_CONF:

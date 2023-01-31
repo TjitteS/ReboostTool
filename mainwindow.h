@@ -34,6 +34,8 @@
 #include <QEventLoop>
 #include <QDesktopServices>
 #include <QLoggingCategory>
+#include <QString>
+
 
 #include "mpptinterface.h"
 #include "ui_mainwindow.h"
