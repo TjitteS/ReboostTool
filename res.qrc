@@ -130,7 +130,9 @@
         <file>res/icons/iv.png</file>
         <file>res/images/vedder_nunchuk.jpg</file>
         <file>res/parameters_mpptconfig.xml</file>
-        <file>res/firmwares/SEC-B175-7A/OpenSEC_SEC-B175-7A_default.bin</file>
-        <file>res/firmwares/SEC-B175-7A/OpenSEC_SEC-B175-7A-SIM_default.bin</file>
+        <file>res/firmwares/SEC-B80-8A/OpenSEC_SEC-B80-8A.bin</file>
+        <file>res/firmwares/SEC-B80-8A/OpenSEC_SEC-B80-8A-SIM.bin</file>
+        <file>res/firmwares/SEC-B175-7A/OpenSEC_SEC-B175-7A.bin</file>
+        <file>res/firmwares/SEC-B175-7A/OpenSEC_SEC-B175-7A-SIM.bin</file>
     </qresource>
 </RCC>
