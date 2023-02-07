@@ -2,5 +2,11 @@
 
 
 === FW 1.0 ===
-
+- Major code restyling
+- Got rid of CubeMX
+- Added support for different hardware configurations
+- Added boot-loader
+- Added firmware upgrade feature
+- Simplified interface with tool
+- Separated calibration data from settings
 
