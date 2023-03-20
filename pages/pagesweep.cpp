@@ -104,11 +104,11 @@ void PageSweep::setMPPT(MPPTInterface *mppt){
 void PageSweep::timerSlot(){
     if(mUpdateValPlot){
         int index = 0;
-        ui->sweepPlot->graph(index++)->setData(mvs,mis);
-        ui->sweepPlot->graph(index++)->setData(mvs,mps);
+        ui->sweepPlot->graph(index++)->setData(mvs, mis);
+        ui->sweepPlot->graph(index++)->setData(mvs, mps);
 
-        ui->sweepPlot->graph(index++)->setData(vpath,ipath);
-        ui->sweepPlot->graph(index++)->setData(vpath,ppath);
+        ui->sweepPlot->graph(index++)->setData(vpath, ipath);
+        ui->sweepPlot->graph(index++)->setData(vpath, ppath);
 
 
         //ui->sweepPlot->rescaleAxes();
@@ -121,7 +121,7 @@ void PageSweep::timerSlot(){
 void PageSweep::valuesReceived(MPPT_VALUES values){
     vpath[0] = values.Vin;
     ipath[0] = values.Ipv;
-    ppath[0] = values.Power;
+    ppath[0] = values.Vin * values.Ipv;
     mUpdateValPlot = true;
 }
 
