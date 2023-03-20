@@ -5,7 +5,7 @@
 #-------------------------------------------------
 
 # Version
-DT_VERSION = 1.1
+DT_VERSION = 1.2
 
 DEFINES += DT_VERSION=$$DT_VERSION
 
