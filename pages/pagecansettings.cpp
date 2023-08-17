@@ -64,6 +64,9 @@ void PageCanSettings::SetMPPT(MPPTInterface *mppt){
           ui->CanSettings->addParamRow(mMPPT->mpptConfig(),"settings_PhaseHighSideEnableCurrent");
           ui->CanSettings->addParamRow(mMPPT->mpptConfig(),"settings_PhaseCurrentMin");
           ui->CanSettings->addParamRow(mMPPT->mpptConfig(),"settings_outputEnable");
+          ui->CanSettings->addParamRow(mMPPT->mpptConfig(),"settings_outputEnalbeOnStartup");
+          ui->CanSettings->addParamRow(mMPPT->mpptConfig(),"settings_StartupDelay");
+
 
     }
 }
