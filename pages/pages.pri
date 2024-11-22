@@ -5,6 +5,7 @@ FORMS += \
     $$PWD/pageconfigsettings.ui \
     $$PWD/pageconnection.ui \
     $$PWD/pagedebugprint.ui \
+    $$PWD/pagescope.ui \
     $$PWD/pagesweep.ui \
     $$PWD/pageterminal.ui \
     $$PWD/pagefirmware.ui \
@@ -22,6 +23,7 @@ HEADERS += \
     $$PWD/pageconfigsettings.h \
     $$PWD/pageconnection.h \
     $$PWD/pagedebugprint.h \
+    $$PWD/pagescope.h \
     $$PWD/pagesweep.h \
     $$PWD/pageterminal.h \
     $$PWD/pagefirmware.h \
@@ -39,6 +41,7 @@ SOURCES += \
     $$PWD/pageconfigsettings.cpp \
     $$PWD/pageconnection.cpp \
     $$PWD/pagedebugprint.cpp \
+    $$PWD/pagescope.cpp \
     $$PWD/pagesweep.cpp \
     $$PWD/pageterminal.cpp \
     $$PWD/pagefirmware.cpp \

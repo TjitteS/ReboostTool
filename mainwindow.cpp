@@ -529,6 +529,10 @@ void MainWindow::reloadPages()
     ui->pageWidget->addWidget(mPageSweep);
     addPageItem(tr("Sweep"), "://res/icons/iv.png", "", false, true);
 
+    mPageScope = new PageScope(this);
+    mPageScope->setMPPT(mMPPT);
+    ui->pageWidget->addWidget(mPageScope);
+    addPageItem(tr("Scope"), "://res/icons/Outgoing Data-96.png", "", false, true);
 
     mPageTerminal = new PageTerminal(this);
     mPageTerminal->setMPPT(mMPPT);

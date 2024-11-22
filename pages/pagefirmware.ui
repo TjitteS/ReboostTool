@@ -85,45 +85,7 @@
            </layout>
           </item>
           <item>
-           <layout class="QHBoxLayout" name="horizontalLayout_6">
-            <item>
-             <widget class="QCheckBox" name="showNonDefaultBox">
-              <property name="toolTip">
-               <string>Show firmwares with non-default compilation options</string>
-              </property>
-              <property name="text">
-               <string>Show non-default firmwares</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <spacer name="horizontalSpacer">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-            <item>
-             <widget class="QPushButton" name="changelogButton">
-              <property name="toolTip">
-               <string>Show firmware changelog</string>
-              </property>
-              <property name="text">
-               <string/>
-              </property>
-              <property name="icon">
-               <iconset resource="../res.qrc">
-                <normaloff>:/res/icons/About-96.png</normaloff>:/res/icons/About-96.png</iconset>
-              </property>
-             </widget>
-            </item>
-           </layout>
+           <layout class="QHBoxLayout" name="horizontalLayout_6"/>
           </item>
          </layout>
         </widget>
@@ -174,19 +136,6 @@
           </item>
          </layout>
         </widget>
-        <widget class="QWidget" name="tab_3">
-         <property name="enabled">
-          <bool>false</bool>
-         </property>
-         <attribute name="title">
-          <string>Bootloader</string>
-         </attribute>
-         <layout class="QVBoxLayout" name="verticalLayout_8">
-          <item>
-           <widget class="QListWidget" name="blList"/>
-          </item>
-         </layout>
-        </widget>
        </widget>
       </item>
       <item>
@@ -211,6 +160,26 @@
           <property name="icon">
            <iconset resource="../res.qrc">
             <normaloff>:/res/icons/Cancel-96.png</normaloff>:/res/icons/Cancel-96.png</iconset>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="changelogButton">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="toolTip">
+           <string>Show firmware changelog</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="../res.qrc">
+            <normaloff>:/res/icons/About-96.png</normaloff>:/res/icons/About-96.png</iconset>
           </property>
          </widget>
         </item>

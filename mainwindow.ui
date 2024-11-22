@@ -104,7 +104,7 @@
      <x>0</x>
      <y>0</y>
      <width>1054</width>
-     <height>22</height>
+     <height>20</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -208,7 +208,7 @@
     <string>readBMScconf</string>
    </property>
    <property name="toolTip">
-    <string>Read BMS Configuration</string>
+    <string>Read Configuration</string>
    </property>
   </action>
   <action name="actionReadBMScconfDefault">
@@ -220,7 +220,7 @@
     <string>readBMScconfDefault</string>
    </property>
    <property name="toolTip">
-    <string>Read default BMS configuration</string>
+    <string>Read default configuration</string>
    </property>
   </action>
   <action name="actionWriteBMScconf">
@@ -232,7 +232,7 @@
     <string>writeBMScconf</string>
    </property>
    <property name="toolTip">
-    <string>Write BMS configuration</string>
+    <string>Write configuration</string>
    </property>
   </action>
   <action name="actionSaveBMSConfXml">
@@ -336,10 +336,10 @@
      <normaloff>:/res/icons/About-96.png</normaloff>:/res/icons/About-96.png</iconset>
    </property>
    <property name="text">
-    <string>About TPEE MPPT Tool</string>
+    <string>About TPEE Reboost Tool</string>
    </property>
    <property name="toolTip">
-    <string>About DieBieMS Tool</string>
+    <string>About TPEE Reboost Tool</string>
    </property>
   </action>
   <action name="actionParameterEditorBMScconf">
@@ -369,7 +369,7 @@
     <string>Save Configuration C Header (ifdef wrapped) as...</string>
    </property>
    <property name="toolTip">
-    <string>Save BMS Configuration C Header (ifdef wrapped) as</string>
+    <string>Save Configuration C Header (ifdef wrapped) as</string>
    </property>
   </action>
   <action name="actionRtDataApp">
@@ -506,7 +506,7 @@
     <string>MPPT Tool Changelog</string>
    </property>
    <property name="toolTip">
-    <string>DieBieMS Tool Changelog</string>
+    <string>TPEE Reboost Tool Changelog</string>
    </property>
   </action>
   <action name="actionFirmwareChangelog">
@@ -536,7 +536,7 @@
     <string>writeBMScconf</string>
    </property>
    <property name="toolTip">
-    <string>Store BMS configuration to Flash</string>
+    <string>Store configuration to Flash</string>
    </property>
   </action>
  </widget>

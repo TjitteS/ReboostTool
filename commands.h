@@ -61,6 +61,9 @@ signals:
     void rotorPosReceived(double pos);
     void mpptConfigCheckResult(QStringList paramsNotSet);
 
+    void scopeDataReceived(int channel, int index, QVector<double> data);
+    void scopeSampleRateReceived(float samplerate);
+
 public slots:
     void processPacket(QByteArray data);
     void getFwVersion();
@@ -76,6 +79,11 @@ public slots:
     void reboot();
     void sendAlive();
     void pairNrf(int ms);
+
+    void ScopeRun(int samples, int pretrigger, int div, int ch1source, int channel2source);
+    void ScopeCurrentStep(int samples, int pretrigger, int div, int ch1source, int channel2source, float I0, float I1);
+    void ScopeGetData();
+
 
 private slots:
     void timerSlot();
@@ -112,6 +120,7 @@ private:
     int mTimeoutValues;
     int mTimeoutCells;
     int mTimeoutSweep;
+    int mTimeoutScope;
 };
 
 #endif // COMMANDS_H

@@ -176,6 +176,28 @@ void Commands::processPacket(QByteArray data)
 
     }break;
 
+    case COMM_MPPT_SCOPE_RUN:{
+        float sr = vb.vbPopFrontDouble32Auto();
+        emit scopeSampleRateReceived(sr);
+    } break;
+    case COMM_MPPT_SCOPE_STEP:{
+        float sr = vb.vbPopFrontDouble32Auto();
+        emit scopeSampleRateReceived(sr);
+    }break;
+
+    case COMM_MPPT_SCOPE_GET_DATA:{
+        int ch = vb.vbPopFrontUint8();
+        int index = vb.vbPopFrontUint16();
+        int size = vb.vbPopFrontUint8();
+        QVector<double> data = QVector<double>(size);
+
+        for (int i =0; i<size;i++){
+            data[i] = vb.vbPopFrontDouble32Auto();
+        }
+        emit scopeDataReceived(ch, index, data);
+    }break;
+
+
     case COMM_PRINT:
         emit printReceived(QString::fromLatin1(vb));
         break;
@@ -263,6 +285,42 @@ void Commands::getSweep(double start, double end){
     vb.append(COMM_MPPT_GET_SWEEP);
     vb.vbAppendDouble16(start,1e2);
     vb.vbAppendDouble16(end,1e2);
+    emitData(vb);
+}
+
+void Commands::ScopeRun(int samples, int pretrigger, int div, int ch1source, int ch2source){
+    mTimeoutScope = mTimeoutCount;
+
+    VByteArray vb;
+    vb.append(COMM_MPPT_SCOPE_RUN);
+    vb.vbAppendUint16(samples);
+    vb.vbAppendUint16(pretrigger);
+    vb.vbAppendUint8(div);
+    vb.vbAppendUint8(ch1source);
+    vb.vbAppendUint8(ch2source);
+    emitData(vb);
+}
+
+void Commands::ScopeCurrentStep(int samples, int pretrigger, int div, int ch1source, int ch2source, float I0, float I1){
+    mTimeoutScope = mTimeoutCount;
+
+    VByteArray vb;
+    vb.append(COMM_MPPT_SCOPE_STEP);
+    vb.vbAppendUint16(samples);
+    vb.vbAppendUint16(pretrigger);
+    vb.vbAppendUint8(div);
+    vb.vbAppendUint8(ch1source);
+    vb.vbAppendUint8(ch2source);
+    vb.vbAppendDouble32Auto(I0);
+    vb.vbAppendDouble32Auto(I1);
+
+    emitData(vb);
+}
+void Commands::ScopeGetData(){
+    mTimeoutScope = mTimeoutCount;
+
+    VByteArray vb;
+    vb.append(COMM_MPPT_SCOPE_GET_DATA);
     emitData(vb);
 }
 

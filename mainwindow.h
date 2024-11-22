@@ -61,6 +61,7 @@
 #include "pages/pageconfigsettings.h"
 #include "pages/pagesweep.h"
 #include "pages/pagecansettings.h"
+#include "pages/pagescope.h"
 
 
 namespace Ui {
@@ -130,7 +131,7 @@ private:
     PageDataAnalysis *mPageDataAnalysis;
     PageRtData *mPageRtData;
     PageSweep *mPageSweep;
-
+    PageScope *mPageScope;
 
     PageTerminal *mPageTerminal;
     PageDebugPrint *mPageDebugPrint;

@@ -40,8 +40,7 @@ PageFirmware::PageFirmware(QWidget *parent) :
 
     connect(ui->hwList, SIGNAL(currentRowChanged(int)),
             this, SLOT(updateFwList()));
-    connect(ui->showNonDefaultBox, SIGNAL(toggled(bool)),
-            this, SLOT(updateFwList()));
+    //connect(ui->showNonDefaultBox, SIGNAL(toggled(bool)),this, SLOT(updateFwList()));
 }
 
 PageFirmware::~PageFirmware()
@@ -128,6 +127,8 @@ void PageFirmware::updateHwList(QString hw)
         QFileInfo fi(it.next());
         QStringList names = fi.fileName().split("_o_");
 
+        //qDebug(names[0].toLatin1());
+
         if (fi.isDir() && (hw.isEmpty() || names.contains(hw, Qt::CaseInsensitive))) {
             QListWidgetItem *item = new QListWidgetItem;
 
@@ -159,13 +160,11 @@ void PageFirmware::updateFwList()
         QDirIterator it(hw);
         while (it.hasNext()) {
             QFileInfo fi(it.next());
-            if (ui->showNonDefaultBox->isChecked() ||
-                    fi.fileName() == "OpenSEC_SEC-B175-7A_default.bin") {
-                QListWidgetItem *item = new QListWidgetItem;
-                item->setText(fi.fileName());
-                item->setData(Qt::UserRole, fi.absoluteFilePath());
-                ui->fwList->insertItem(ui->fwList->count(), item);
-            }
+            //if (ui->showNonDefaultBox->isChecked() || fi.fileName() == "OpenSEC_SEC-B175-7A_default.bin") {
+            QListWidgetItem *item = new QListWidgetItem;
+            item->setText(fi.fileName());
+            item->setData(Qt::UserRole, fi.absoluteFilePath());
+            ui->fwList->insertItem(ui->fwList->count(), item);
         }
     }
 
@@ -174,8 +173,10 @@ void PageFirmware::updateFwList()
     }
 }
 
+
 void PageFirmware::updateBlList(QString hw)
 {
+    /*
     ui->blList->clear();
 
     QDirIterator it("://res/bootloaders");
@@ -210,6 +211,7 @@ void PageFirmware::updateBlList(QString hw)
     if (ui->blList->count() > 0) {
         ui->blList->setCurrentRow(0);
     }
+    */
 }
 
 void PageFirmware::on_chooseButton_clicked()
@@ -266,6 +268,7 @@ void PageFirmware::on_uploadButton_clicked()
                 return;
             }
         } else {
+            /*
             QListWidgetItem *item = ui->blList->currentItem();
 
             if (item) {
@@ -284,6 +287,7 @@ void PageFirmware::on_uploadButton_clicked()
 
                 return;
             }
+            */
         }
 
         if (!file.open(QIODevice::ReadOnly)) {

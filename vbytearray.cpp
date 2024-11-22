@@ -213,6 +213,7 @@ double VByteArray::vbPopFrontDouble16(double scale)
 
 double VByteArray::vbPopFrontDouble32Auto()
 {
+    /*
     uint32_t res = vbPopFrontUint32();
 
     int e = (res >> 23) & 0xFF;
@@ -230,6 +231,16 @@ double VByteArray::vbPopFrontDouble32Auto()
     }
 
     return ldexpf(f, e);
+    */
+    union{
+        float n;
+        uint8_t bytes[4];
+        uint32_t asuint;
+    } number_union;
+
+    number_union.asuint = vbPopFrontUint32();
+
+    return number_union.n;
 }
 
 QString VByteArray::vbPopFrontString()

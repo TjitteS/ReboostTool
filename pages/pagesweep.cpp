@@ -52,14 +52,14 @@ PageSweep::PageSweep(QWidget *parent) :
     graphindex++;
 
     ui->sweepPlot->addGraph();
-    ui->sweepPlot->graph(graphindex)->setPen(QPen(Qt::green));
+    ui->sweepPlot->graph(graphindex)->setPen(QPen(Qt::black));
     ui->sweepPlot->graph(graphindex)->setScatterStyle(QCPScatterStyle(QCPScatterStyle::ssDisc));
     ui->sweepPlot->graph(graphindex)->setLineStyle(QCPGraph::lsNone);
     ui->sweepPlot->graph(graphindex)->setName("Path");
     graphindex++;
 
     ui->sweepPlot->addGraph(ui->sweepPlot->xAxis,ui->sweepPlot->yAxis2);
-    ui->sweepPlot->graph(graphindex)->setPen(QPen(Qt::green));
+    ui->sweepPlot->graph(graphindex)->setPen(QPen(Qt::red));
     ui->sweepPlot->graph(graphindex)->setScatterStyle(QCPScatterStyle(QCPScatterStyle::ssDisc));
     ui->sweepPlot->graph(graphindex)->setLineStyle(QCPGraph::lsNone);
     ui->sweepPlot->graph(graphindex)->setName("Path");

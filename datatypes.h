@@ -253,7 +253,16 @@ typedef enum {
     COMM_NRF_START_PAIRING,
     COMM_STORE_BMS_CONF = 50,
     COMM_GET_BMS_CELLS,
-    COMM_MPPT_GET_SWEEP = 100,
+    COMM_MPPT_GET_SWEEP=100,
+    COMM_MPPT_SetMode,
+    COMM_MPPT_SetOutputVoltage,
+    COMM_MPPT_SetOutputCurrent,
+    COMM_MPPT_SetInputCurrent,
+    COMM_MPPT_SetInputVoltage,
+    COMM_MPPT_SCOPE_RUN,
+    COMM_MPPT_SCOPE_STEP,
+    COMM_MPPT_SCOPE_GET_DATA,
+
 } COMM_PACKET_ID;
 
 typedef struct {
