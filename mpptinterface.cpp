@@ -591,7 +591,7 @@ void MPPTInterface::timerSlot()
                 mFwRetries++;
 
                 // Timeout if the firmware cannot be read
-                if (mFwRetries >= 25) {
+                if (mFwRetries >= 35) {
                     emit statusMessage(tr("No firmware read response"), false);
                     emit messageDialog(tr("Read Firmware Version"),
                                        tr("Could not read firmware version. Make sure "

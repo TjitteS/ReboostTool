@@ -56,7 +56,8 @@ PageScope::PageScope(QWidget *parent) :
 
 
     mTimer = new QTimer(this);
-    mTimer->start(100);
+    getNewData = false;
+    mTimer->start(200);
     connect(mTimer, SIGNAL(timeout()),this,SLOT(timerSlot()));
 
 }
@@ -66,12 +67,7 @@ PageScope::~PageScope()
     delete ui;
 }
 
-void PageScope::timerSlot(){
-    if(getNewData){
-        getNewData = false;
-        mMPPT->commands()->ScopeGetData();
-    }
-}
+
 
 MPPTInterface * PageScope::getmppt() const{
     return mMPPT;
@@ -83,6 +79,7 @@ void PageScope::setMPPT(MPPTInterface *mppt){
         mMPPT = mppt;
         connect(mMPPT->commands(), SIGNAL(scopeDataReceived(int, int, QVector<double>)),this, SLOT(ScopeDataReceived(int, int, QVector<double>)));
         connect(mMPPT->commands(), SIGNAL(scopeSampleRateReceived(float)),this, SLOT(ScopeSetSamplerate(float)));
+        connect(mMPPT->commands(), SIGNAL(scopeDataReady()),this, SLOT(ScopeDataReady()));
 
     }
 }
@@ -207,11 +204,12 @@ void PageScope::UpdateData(){
 void PageScope::RunButtonClicked(){
     UpdateAxis();
     if(mMPPT){
-        mMPPT->commands()->ScopeRun(samples, pretrigger, divider, ch1Source, ch2Source);
+        mMPPT->commands()->ScopeRun(samples, pretrigger, divider, ch1Source, ch2Source, ui->checkBox->isChecked());
         mTimer->start(2000);
         getNewData = true;
     }
 }
+
 
 void PageScope::StepButtonClicked(){
     UpdateAxis();
@@ -222,9 +220,21 @@ void PageScope::StepButtonClicked(){
     }
 }
 
+void PageScope::timerSlot(){
+    if(getNewData){
+        mMPPT->commands()->ScopeDataPollReady();
+    }
+}
+
 void PageScope::SaveButtonCLicked(){
 
 }
+
+void PageScope::ScopeDataReady(){
+    mMPPT->commands()->ScopeGetData();
+    getNewData = false;
+}
+
 void PageScope::ScopeDataReceived(int channel, int index, QVector<double> values){
     qDebug( "Data Received." );
 

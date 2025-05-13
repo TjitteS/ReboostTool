@@ -185,6 +185,7 @@ void Commands::processPacket(QByteArray data)
         emit scopeSampleRateReceived(sr);
     }break;
 
+
     case COMM_MPPT_SCOPE_GET_DATA:{
         int ch = vb.vbPopFrontUint8();
         int index = vb.vbPopFrontUint16();
@@ -197,6 +198,15 @@ void Commands::processPacket(QByteArray data)
         emit scopeDataReceived(ch, index, data);
     }break;
 
+    case COMM_MPPT_SCOPE_DATAREADY:{
+        int ready = vb.vbPopFrontUint8();
+
+        qDebug() << ready;
+
+        if(ready == 0){
+            emit scopeDataReady();
+        }
+    }break;
 
     case COMM_PRINT:
         emit printReceived(QString::fromLatin1(vb));
@@ -288,7 +298,7 @@ void Commands::getSweep(double start, double end){
     emitData(vb);
 }
 
-void Commands::ScopeRun(int samples, int pretrigger, int div, int ch1source, int ch2source){
+void Commands::ScopeRun(int samples, int pretrigger, int div, int ch1source, int ch2source, bool onFault){
     mTimeoutScope = mTimeoutCount;
 
     VByteArray vb;
@@ -298,6 +308,8 @@ void Commands::ScopeRun(int samples, int pretrigger, int div, int ch1source, int
     vb.vbAppendUint8(div);
     vb.vbAppendUint8(ch1source);
     vb.vbAppendUint8(ch2source);
+    vb.vbAppendUint8(onFault);
+
     emitData(vb);
 }
 
@@ -316,6 +328,15 @@ void Commands::ScopeCurrentStep(int samples, int pretrigger, int div, int ch1sou
 
     emitData(vb);
 }
+
+void Commands::ScopeDataPollReady(){
+    mTimeoutScope = mTimeoutCount;
+
+    VByteArray vb;
+    vb.append(COMM_MPPT_SCOPE_DATAREADY);
+    emitData(vb);
+}
+
 void Commands::ScopeGetData(){
     mTimeoutScope = mTimeoutCount;
 

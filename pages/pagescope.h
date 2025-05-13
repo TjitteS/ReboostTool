@@ -53,6 +53,7 @@ private slots:
     void ScopeDataReceived(int channel, int index, QVector<double> vs);
     void ScopeSetSamplerate(float sr);
     void timerSlot();
+    void ScopeDataReady();
 
 private:
     Ui::PageScope *ui;
@@ -67,6 +68,7 @@ private:
     int samples;
     int pretrigger;
     int divider;
+    bool onFault;
 
     bool getNewData;
 
@@ -77,6 +79,8 @@ private:
     Unit_t GetUnit(ConverterScopeSourceIndex_t source);
     void UpdateAxis();
     void UpdateData();
+
+
 };
 
 

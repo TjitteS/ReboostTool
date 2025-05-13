@@ -137,5 +137,9 @@
         <file>res/firmwares/Bootloader/SEC-BOOT.bin</file>
         <file>res/firmwares/SEC-B175-4A/OpenSEC_SEC-B175-4A-SIM.bin</file>
         <file>res/firmwares/SEC-B175-4A/OpenSEC_SEC-B175-4A.bin</file>
+        <file>res/firmwares/SEC-B175-10A/OpenSEC_SEC-B175-10A-SIM.bin</file>
+        <file>res/firmwares/SEC-B175-10A/OpenSEC_SEC-B175-10A.bin</file>
+        <file>res/firmwares/SEC-B175-4B/OpenSEC_SEC-B175-4B-SIM.bin</file>
+        <file>res/firmwares/SEC-B175-4B/OpenSEC_SEC-B175-4B.bin</file>
     </qresource>
 </RCC>
