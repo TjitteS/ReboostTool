@@ -60,6 +60,14 @@ void PageCanSettings::SetMPPT(MPPTInterface *mppt){
           ui->CanSettings->addParamRow(mMPPT->mpptConfig(),"mppt_jump_PowerThreshold");
           ui->CanSettings->addParamRow(mMPPT->mpptConfig(),"mppt_jump_Rate");
 
+          ui->CanSettings->addRowSeparator("Sweep settings");
+          ui->CanSettings->addParamRow(mMPPT->mpptConfig(),"mppt_Sweep_eneable");
+          ui->CanSettings->addParamRow(mMPPT->mpptConfig(),"mppt_Sweep_interval");
+          ui->CanSettings->addParamRow(mMPPT->mpptConfig(),"mppt_Sweep_timestep");
+          ui->CanSettings->addParamRow(mMPPT->mpptConfig(),"mppt_Sweep_direction");
+          ui->CanSettings->addParamRow(mMPPT->mpptConfig(),"mppt_Sweep_datapoints");
+          ui->CanSettings->addParamRow(mMPPT->mpptConfig(),"mppt_Sweep_publishOnCan");
+
           ui->CanSettings->addRowSeparator("Other settings");
           ui->CanSettings->addParamRow(mMPPT->mpptConfig(),"settings_PhaseHighSideEnableCurrent");
           ui->CanSettings->addParamRow(mMPPT->mpptConfig(),"settings_PhaseCurrentMin");

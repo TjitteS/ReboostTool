@@ -148,9 +148,9 @@ void PageSweep::sweepDataReceifed(QVector<double> vs, QVector<double> is){
         if(mps[i] < minp)minp=mps[i];
     }
 
-    ui->sweepPlot->yAxis->setRange (mini, maxi*1.05);
-    ui->sweepPlot->yAxis2->setRange(minp, maxp*1.05);
-    ui->sweepPlot->xAxis->setRange (minv, maxv*1.05);
+    ui->sweepPlot->yAxis->setRange (0, maxi*1.05);
+    ui->sweepPlot->yAxis2->setRange(0, maxp*1.05);
+    ui->sweepPlot->xAxis->setRange (0, maxv*1.05);
     mUpdateValPlot = true;
 }
 
