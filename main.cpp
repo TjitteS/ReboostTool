@@ -36,6 +36,7 @@ int main(int argc, char *argv[])
     QCoreApplication::setOrganizationDomain("tpee.nl");
     QCoreApplication::setApplicationName(QString("TPEE Reboost Tooool %1").arg(QString::number(DT_VERSION)));
 
+
     // DPI settings
     // TODO: http://www.qcustomplot.com/index.php/support/forum/1344
 
@@ -58,7 +59,9 @@ int main(int argc, char *argv[])
 
     if (scaleAuto) {
         QApplication tmp(argc, argv);
-        QRect rec = tmp.desktop()->screenGeometry();
+        //QRect rec = tmp.desktop()->screenGeometry();
+        QRect rec = tmp.screens()[0]->geometry();
+
         int height = rec.height();
         int width = rec.width();
         double ptFont = tmp.font().pointSizeF();
