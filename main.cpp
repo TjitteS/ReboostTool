@@ -34,7 +34,11 @@ int main(int argc, char *argv[])
     // Settings
     QCoreApplication::setOrganizationName("TPEE");
     QCoreApplication::setOrganizationDomain("tpee.nl");
-    QCoreApplication::setApplicationName(QString("TPEE Reboost Tooool %1").arg(QString::number(DT_VERSION)));
+    QCoreApplication::setApplicationName(QString("TPEE Reboost Tooool %1 . %2 ")
+                                         .arg(QString::number(DT_VERSION))
+                                         .arg(QString::number(DT_SUBVERSION)));
+
+    QCoreApplication::setApplicationVersion("Je moeder");
 
 
     // DPI settings

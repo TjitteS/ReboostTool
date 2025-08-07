@@ -5,9 +5,11 @@
 #-------------------------------------------------
 
 # Version
-DT_VERSION = 1.10
+DT_VERSION = 1
+DT_SUBVERSION = 10
 
 DEFINES += DT_VERSION=$$DT_VERSION
+DEFINES += DT_SUBVERSION=$$DT_SUBVERSION
 
 # Serial port available
 DEFINES += HAS_SERIALPORT
@@ -35,7 +37,7 @@ contains(DEFINES, HAS_SERIALPORT) {
 android: QT += androidextras
 
 android: TARGET = ReboostTool
-!android: TARGET = ReboostToolV$$DT_VERSION
+!android: TARGET = "ReboostTool V$${DT_VERSION}.$${DT_SUBVERSION}"
 
 TEMPLATE = app
 

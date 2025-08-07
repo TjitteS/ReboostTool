@@ -62,11 +62,12 @@ namespace {
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent),ui(new Ui::MainWindow){
     ui->setupUi(this);
 
-    this->setWindowTitle(QString("TPEE Reboost Tool V%1").arg(QString::number(DT_VERSION)));
+    this->setWindowTitle(QString("TPEE Reboost Tool V%1.%2").arg(QString::number(DT_VERSION)).arg(QString::number(DT_SUBVERSION)));
 
     QLoggingCategory::setFilterRules("qt.network.ssl.warning=false");
 
-    mVersion = QString::number(DT_VERSION);
+    mVersion = QString("%1.%2").arg(QString::number(DT_VERSION)).arg(QString::number(DT_SUBVERSION));
+
     mMPPT = new MPPTInterface(this);
     mStatusInfoTime = 0;
     mStatusLabel = new QLabel(this);
