@@ -601,7 +601,7 @@ QString Commands::phaseModeToStr(PhaseMode_t mode)
     case PhaseMode_MinInputCurrent: return "Minimal Input Current";
     case PhaseMode_COV:             return "Constant Output Voltage";
     case PhaseMode_COC:             return "Constant Output Current";
-    case PhaseMode_TD:             return "Teperature de-rating";
+    case PhaseMode_TD:              return "Temperature Drating";
     case PhaseMode_Fault:           return "Fault";
 
     default: return "Unknown Mode";
