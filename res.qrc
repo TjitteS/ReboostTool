@@ -141,5 +141,7 @@
         <file>res/firmwares/SEC-B175-10A/OpenSEC_SEC-B175-10A.bin</file>
         <file>res/firmwares/SEC-B175-4B/OpenSEC_SEC-B175-4B-SIM.bin</file>
         <file>res/firmwares/SEC-B175-4B/OpenSEC_SEC-B175-4B.bin</file>
+        <file>res/firmwares/SEC-B80-8B/OpenSEC_SEC-B80-8B-SIM.bin</file>
+        <file>res/firmwares/SEC-B80-8B/OpenSEC_SEC-B80-8B.bin</file>
     </qresource>
 </RCC>
