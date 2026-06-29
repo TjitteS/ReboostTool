@@ -321,6 +321,7 @@ typedef enum PhaseMode_t{
     PhaseMode_COV,
     PhaseMode_COC,
     PhaseMode_TD,
+    PhaseMode_MinInputVoltage,
     PhaseMode_Fault,
 }PhaseMode_t;
 

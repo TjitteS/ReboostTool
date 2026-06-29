@@ -18,14 +18,17 @@ typedef enum{
     SourceIndex_Vlow,
     SourceIndex_Vhigh,
     SourceIndex_Ilow,
-    SourceIndex_Power,
+    SourceIndex_PowerHigh,
+    SourceIndex_PowerLow,
+
     SourceIndex_Eff,
     SourceIndex_Iind_Filtered,
     SourceIndex_Ihigh_Filtered,
     SourceIndex_Vlow_Filtered,
     SourceIndex_Vhigh_Filtered,
     SourceIndex_Ilow_Filtered,
-    SourceIndex_Power_Filtered,
+    SourceIndex_PowerHigh_Filtered,
+    SourceIndex_PowerLow_Filtered,
     SourceIndex_Eff_Filtered,
 }ConverterScopeSourceIndex_t;
 

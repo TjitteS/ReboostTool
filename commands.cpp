@@ -298,7 +298,7 @@ void Commands::getSweep(double start, double end){
     emitData(vb);
 }
 
-void Commands::ScopeRun(int samples, int pretrigger, int div, int ch1source, int ch2source, bool onFault){
+void Commands::ScopeRun(int samples, int pretrigger, int div, int ch1source, int ch2source, bool onFault, bool Auto){
     mTimeoutScope = mTimeoutCount;
 
     VByteArray vb;
@@ -309,6 +309,7 @@ void Commands::ScopeRun(int samples, int pretrigger, int div, int ch1source, int
     vb.vbAppendUint8(ch1source);
     vb.vbAppendUint8(ch2source);
     vb.vbAppendUint8(onFault);
+    vb.vbAppendUint8(Auto);
 
     emitData(vb);
 }
@@ -602,6 +603,8 @@ QString Commands::phaseModeToStr(PhaseMode_t mode)
     case PhaseMode_COV:             return "Constant Output Voltage";
     case PhaseMode_COC:             return "Constant Output Current";
     case PhaseMode_TD:              return "Temperature Drating";
+    case PhaseMode_MinInputVoltage: return "Min Input Voltage";
+
     case PhaseMode_Fault:           return "Fault";
 
     default: return "Unknown Mode";

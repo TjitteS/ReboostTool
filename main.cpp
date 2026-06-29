@@ -52,7 +52,7 @@ int main(int argc, char *argv[])
     QCoreApplication::setAttribute(Qt::AA_Use96Dpi);
 
     QSettings set;
-    bool scaleAuto = true;
+    bool scaleAuto = false;
     double scale = 1.0;
 
     if (set.contains("app_scale_auto")) {

@@ -81,7 +81,7 @@ public slots:
     void sendAlive();
     void pairNrf(int ms);
 
-    void ScopeRun(int samples, int pretrigger, int div, int ch1source, int channel2source, bool onFault);
+    void ScopeRun(int samples, int pretrigger, int div, int ch1source, int channel2source, bool onFault, bool Auto);
     void ScopeCurrentStep(int samples, int pretrigger, int div, int ch1source, int channel2source, float I0, float I1);
     void ScopeGetData();
     void ScopeDataPollReady();

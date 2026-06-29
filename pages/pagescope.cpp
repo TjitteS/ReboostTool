@@ -18,14 +18,16 @@ PageScope::PageScope(QWidget *parent) :
     ui->Ch1source->addItem("Low-side Voltage", SourceIndex_Vlow);
     ui->Ch1source->addItem("High-side Voltage",SourceIndex_Vhigh);
     ui->Ch1source->addItem("Low-side Current", SourceIndex_Ilow);
-    ui->Ch1source->addItem("Power",            SourceIndex_Power);
+    ui->Ch1source->addItem("Power High",            SourceIndex_PowerHigh);
+    ui->Ch1source->addItem("Power Low",            SourceIndex_PowerLow);
     ui->Ch1source->addItem("Efficiency",       SourceIndex_Eff);
     ui->Ch1source->addItem("Inductor Current(F)", SourceIndex_Iind_Filtered);
     ui->Ch1source->addItem("High-side Current(F)",SourceIndex_Ihigh_Filtered);
     ui->Ch1source->addItem("Low-side Voltage(F)", SourceIndex_Vlow_Filtered);
     ui->Ch1source->addItem("High-side Voltage(F)",SourceIndex_Vhigh_Filtered);
     ui->Ch1source->addItem("Low-side Current(F)", SourceIndex_Ilow_Filtered);
-    ui->Ch1source->addItem("Power(F)",            SourceIndex_Power_Filtered);
+    ui->Ch1source->addItem("Power High(F)",       SourceIndex_PowerHigh_Filtered);
+    ui->Ch1source->addItem("Power Low(F)",       SourceIndex_PowerLow_Filtered);
     ui->Ch1source->addItem("Efficiency(F)",       SourceIndex_Eff_Filtered);
 
     ui->Ch2source->addItem("Inductor Current", SourceIndex_Iind);
@@ -33,14 +35,16 @@ PageScope::PageScope(QWidget *parent) :
     ui->Ch2source->addItem("Low-side Voltage", SourceIndex_Vlow);
     ui->Ch2source->addItem("High-side Voltage",SourceIndex_Vhigh);
     ui->Ch2source->addItem("Low-side Current", SourceIndex_Ilow);
-    ui->Ch2source->addItem("Power",            SourceIndex_Power);
+    ui->Ch2source->addItem("Power High",            SourceIndex_PowerHigh);
+    ui->Ch2source->addItem("Power Low",            SourceIndex_PowerLow);
     ui->Ch2source->addItem("Efficiency",       SourceIndex_Eff);
     ui->Ch2source->addItem("Inductor Current(F)", SourceIndex_Iind_Filtered);
     ui->Ch2source->addItem("High-side Current(F)",SourceIndex_Ihigh_Filtered);
     ui->Ch2source->addItem("Low-side Voltage(F)", SourceIndex_Vlow_Filtered);
     ui->Ch2source->addItem("High-side Voltage(F)",SourceIndex_Vhigh_Filtered);
     ui->Ch2source->addItem("Low-side Current(F)", SourceIndex_Ilow_Filtered);
-    ui->Ch2source->addItem("Power(F)",            SourceIndex_Power_Filtered);
+    ui->Ch2source->addItem("Power High(F)",       SourceIndex_PowerHigh_Filtered);
+    ui->Ch2source->addItem("Power Low(F)",       SourceIndex_PowerLow_Filtered);
     ui->Ch2source->addItem("Efficiency(F)",       SourceIndex_Eff_Filtered);
 
     //Initialise Scope Plot
@@ -100,7 +104,10 @@ Unit_t PageScope::GetUnit(ConverterScopeSourceIndex_t source){
     case SourceIndex_Ilow:
         return  Unit_Current;
         break;
-    case SourceIndex_Power:
+    case SourceIndex_PowerHigh:
+    case SourceIndex_PowerLow:
+    case SourceIndex_PowerHigh_Filtered:
+    case SourceIndex_PowerLow_Filtered:
         return Unit_Power;
         break;
     case SourceIndex_Eff:
@@ -121,9 +128,7 @@ Unit_t PageScope::GetUnit(ConverterScopeSourceIndex_t source){
     case SourceIndex_Ilow_Filtered:
         return Unit_Current;
         break;
-    case SourceIndex_Power_Filtered:
-        return Unit_Power;
-        break;
+
     case SourceIndex_Eff_Filtered:
         return Unit_Eff;
         break;
@@ -204,7 +209,7 @@ void PageScope::UpdateData(){
 void PageScope::RunButtonClicked(){
     UpdateAxis();
     if(mMPPT){
-        mMPPT->commands()->ScopeRun(samples, pretrigger, divider, ch1Source, ch2Source, ui->checkBox->isChecked());
+        mMPPT->commands()->ScopeRun(samples, pretrigger, divider, ch1Source, ch2Source, ui->checkBox->isChecked(), false);
         mTimer->start(2000);
         getNewData = true;
     }
